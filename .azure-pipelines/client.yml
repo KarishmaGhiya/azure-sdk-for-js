@@ -52,7 +52,7 @@ jobs:
       - task: PublishBuildArtifacts@1
         displayName: 'Publish Package'
 
-  - job: 'Audit'
+  - job: 'Analyze'
 
     pool:
       vmImage: 'ubuntu-16.04'
