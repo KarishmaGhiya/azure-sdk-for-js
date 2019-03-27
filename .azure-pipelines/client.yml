@@ -8,7 +8,7 @@ trigger:
 
 variables:
   NodeVersion: '10.x'
-  PackageArgument: coalesce('All', '$(Package)')
+  PackageArgument: $[coalesce('All', '$(Package)')]
 
 jobs:
   - job: 'Build'
