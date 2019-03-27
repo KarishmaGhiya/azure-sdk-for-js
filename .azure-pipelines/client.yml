@@ -1,3 +1,8 @@
+# External variables:
+# Package
+#   The package to build and test. Defined in pipeline web ui because multiple pipelines use this YAML with different packages.
+#   Example: eventhubs-client
+#
 trigger:
   - master
 
@@ -27,20 +32,20 @@ jobs:
       - task: Npm@1
         inputs:
           command: 'custom'
-          customCommand: 'run install-client'
-        displayName: 'npm run install-client'
+          customCommand: 'run install-client-$(Package)'
+        displayName: 'npm run install-client-$(Package)'
 
       - task: Npm@1
         inputs:
           command: 'custom'
-          customCommand: 'run build-client'
-        displayName: 'npm run build-client'
+          customCommand: 'run build-client-$(Package)'
+        displayName: 'npm run build-client-$(Package)'
 
       - task: Npm@1
         inputs:
           command: 'custom'
-          customCommand: 'run pack-client'
-        displayName: 'npm run pack-client'
+          customCommand: 'run pack-client-$(Package)'
+        displayName: 'npm run pack-client-$(Package)'
 
       - task: CopyFiles@2
         inputs:
@@ -89,8 +94,8 @@ jobs:
         condition: and(succeeded(), eq(variables['RunNpmAudit'], 'true'))
         inputs:
           command: 'custom'
-          customCommand: 'run audit-client'
-        displayName: 'npm run audit-client'
+          customCommand: 'run audit-client-$(Package)'
+        displayName: 'npm run audit-client-$(Package)'
 
       - task: ms.vss-governance-buildtask.governance-build-task-component-detection.ComponentGovernanceComponentDetection@0
         # ComponentGovernance is currently unable to run on pull requests of public projects. Running on non-PR
@@ -162,8 +167,8 @@ jobs:
       - task: Npm@1
         inputs:
           command: 'custom'
-          customCommand: 'run install-client'
-        displayName: 'npm run install-client'
+          customCommand: 'run install-client-$(Package)'
+        displayName: 'npm run install-client-$(Package)'
 
       - task: Npm@1
         inputs:
