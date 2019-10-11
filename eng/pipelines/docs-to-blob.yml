@@ -13,53 +13,27 @@ jobs:
           definition: $(TargetPipelineDefinition)
           buildVersionToDownload: latestFromBranch
           branchName: refs/heads/$(TargetPipelineBranch)
+
       - pwsh: ls
         workingDirectory: $(Pipeline.Workspace)
         displayName: View Downloaded Artifacts
+
       - pwsh: |
           Invoke-WebRequest -MaximumRetryCount 10 -Uri "https://aka.ms/downloadazcopy-v10-windows" `
           -OutFile "azcopy.zip" | Wait-Process; Expand-Archive -Path "azcopy.zip" -DestinationPath "./azcopy/"
         workingDirectory: $(Build.BinariesDirectory)
         displayName: Download and Extract azcopy Zip
+
       - pwsh: ls
         workingDirectory: $(Build.BinariesDirectory)/azcopy
         displayName: View Content of Azcopy
-      - pwsh: |
-          $DownloadedPkgs = Get-ChildItem "$(Pipeline.Workspace)/packages" | Where-Object -FilterScript {$_.Name.EndsWith(".tgz")}
-          $DownloadedDocs = Get-ChildItem "$(Pipeline.Workspace)" | Where-Object -FilterScript {$_.Name.StartsWith("Docs.")}
 
-          function Upload-Blobs
-          {
-              Param (
-                  [Parameter(Mandatory=$true)] [String]$PkgDocName,
-                  [Parameter(Mandatory=$true)] [String]$PkgName,
-                  [Parameter(Mandatory=$true)] [String]$PkgVersion
-              )
-
-              $BlobBaseDir = 'https://azuresdkdocsdev.blob.core.windows.net/$web/dotnet'
-              New-Item "$(Build.BinariesDirectory)/versionplaceholder.txt"
-
-              $AzCopy = "$(Build.BinariesDirectory)/azcopy/**/azcopy.exe"
-
-              & $AzCopy cp "$(Pipeline.Workspace)/$($PkgDocName)/**" "$($BlobBaseDir)/$($PkgName)/$($PkgVersion)$SAS" --recursive=true
-              & $AzCopy cp "$(Build.BinariesDirectory)/versionplaceholder.txt" "$($BlobBaseDir)/$($PkgName)/version/$($PkgVersion)$SAS" --recursive=true
-              Write-Host "$($PkgDocName) Uploaded"
-          }
-
-          foreach ($Item in $DownloadedDocs) {
-              $PkgName = $Item.Name.Remove(0, 5)
-              $PkgFullName = $DownloadedPkgs | Where-Object -FilterScript {$_.Name -match "$($PkgName).\d"}
-              if (($PkgFullName | Measure-Object).count -eq 1) 
-              {
-                  $PkgVersion = $PkgFullName[0].BaseName.Remove(0, $PkgName.Length + 1)
-                  Write-Host "Uploading Doc for $($PkgName) Version:- $($PkgVersion)..."
-                  Upload-Blobs -PkgDocName $Item.Name -PkgName $PkgName -PkgVersion $PkgVersion
-              }
-              else
-              {
-                  Write-Host "Package with the same name Exists. Upload Skipped"
-                  continue
-              }
-          }
+      - task: Powershell@2
+        inputs:
+          targetType: 'filePath'
+          filePath: $(Build.SourcesDirectory)/eng/tools
+          arguments: -BinariesDir $(Build.BinariesDirectory) -PipelineWorkspace $(Pipeline.Workspace)
+          script: upload-to-storage-blob.ps1
+          pwsh: true
         displayName: Copy Docs to Blob
         continueOnError: false
