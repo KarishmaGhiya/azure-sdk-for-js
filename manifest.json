@@ -1912,15 +1912,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "AG7GUcybG9uF2Syjhubfzg=="
+          "hash": "PBQKfHNtgDlE1LsPOFJzsw=="
         }
       },
       "is_incremental": false,
@@ -2086,12 +2083,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "DdL8ArSZ+DOls2QkNZS6AA=="
+          "hash": "dH53xc8qGCcA2tQ2qhzYOw=="
         }
       },
       "is_incremental": false,
