@@ -5,11 +5,11 @@
   "files": [
     {
       "type": "Conceptual",
-      "source_relative_path": "api/abort-controller.md",
+      "source_relative_path": "api/advisor.md",
       "output": {
         ".html": {
-          "relative_path": "api/abort-controller.html",
-          "hash": "ZWibxP0YuEi1J/chwO8Xdw=="
+          "relative_path": "api/advisor.html",
+          "hash": "bL+6ML1eJZISUbUJrbNA+Q=="
         }
       },
       "is_incremental": false,
@@ -17,11 +17,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/app-configuration.md",
+      "source_relative_path": "api/analysisservices.md",
       "output": {
         ".html": {
-          "relative_path": "api/app-configuration.html",
-          "hash": "QRD6v4885vyHsyEAw/OceA=="
+          "relative_path": "api/analysisservices.html",
+          "hash": "7PLx58Hhtp84yeoEt8TUgg=="
         }
       },
       "is_incremental": false,
@@ -29,11 +29,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/applicationinsights-query.md",
+      "source_relative_path": "api/apimanagement.md",
       "output": {
         ".html": {
-          "relative_path": "api/applicationinsights-query.html",
-          "hash": "m3R+nPJGX+y8cliByN+IMw=="
+          "relative_path": "api/apimanagement.html",
+          "hash": "DYUg+CHezGkUVLW/h56qeg=="
         }
       },
       "is_incremental": false,
@@ -41,11 +41,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/arm-advisor.md",
+      "source_relative_path": "api/appconfiguration.md",
       "output": {
         ".html": {
-          "relative_path": "api/arm-advisor.html",
-          "hash": "yGF2AzQoxyQhqblqSeyuTQ=="
+          "relative_path": "api/appconfiguration.html",
+          "hash": "/UyZJvL99/A/J+C+BWqfPQ=="
         }
       },
       "is_incremental": false,
@@ -53,11 +53,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/arm-analysisservices.md",
+      "source_relative_path": "api/applicationinsights.md",
       "output": {
         ".html": {
-          "relative_path": "api/arm-analysisservices.html",
-          "hash": "rAAg8i24PInba3DSCih7sQ=="
+          "relative_path": "api/applicationinsights.html",
+          "hash": "hFtonreqR+mPRPP2b0JdiQ=="
         }
       },
       "is_incremental": false,
@@ -65,11 +65,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/arm-apimanagement.md",
+      "source_relative_path": "api/appservice.md",
       "output": {
         ".html": {
-          "relative_path": "api/arm-apimanagement.html",
-          "hash": "FKOqI0jwBvjlm2kZ450uSw=="
+          "relative_path": "api/appservice.html",
+          "hash": "kekaspaMjZiSFFXCbZ/E9g=="
         }
       },
       "is_incremental": false,
@@ -77,11 +77,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/arm-appconfiguration.md",
+      "source_relative_path": "api/authorization.md",
       "output": {
         ".html": {
-          "relative_path": "api/arm-appconfiguration.html",
-          "hash": "wUZOgJjz3GjJWWSgXl0Oag=="
+          "relative_path": "api/authorization.html",
+          "hash": "4hMzzY22Vr+j3cqveCXcLQ=="
         }
       },
       "is_incremental": false,
@@ -89,11 +89,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/arm-appinsights.md",
+      "source_relative_path": "api/automation.md",
       "output": {
         ".html": {
-          "relative_path": "api/arm-appinsights.html",
-          "hash": "lJFKKzcVKGSkyWwlh5NrrQ=="
+          "relative_path": "api/automation.html",
+          "hash": "DPi1Ss0/rdauAyQE7pILFg=="
         }
       },
       "is_incremental": false,
@@ -101,1391 +101,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/arm-appservice-profile-2019-03-01-hybrid.md",
+      "source_relative_path": "api/azurestack.md",
       "output": {
         ".html": {
-          "relative_path": "api/arm-appservice-profile-2019-03-01-hybrid.html",
-          "hash": "LzGBOmErd0KJvoL1xs32qg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-appservice.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-appservice.html",
-          "hash": "Rt/PiRmwjw+TGQnR7Msiag=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-authorization-profile-2019-03-01-hybrid.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-authorization-profile-2019-03-01-hybrid.html",
-          "hash": "d63bhY4FYVPm+tr49Cq25A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-authorization.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-authorization.html",
-          "hash": "pdgwC4doMrXtVuxdpLl5FQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-automation.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-automation.html",
-          "hash": "Y5NihmCoP1DHxzD8qmQ76g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-azurestack.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-azurestack.html",
-          "hash": "oWWMnsnoIA399AEN6XJHaw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-batch.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-batch.html",
-          "hash": "Mz+vq5Hl83PmUJNqRr26cg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-batchai.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-batchai.html",
-          "hash": "VflEVke+31AL6zutgJpA4Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-billing.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-billing.html",
-          "hash": "lrmGMsgBXE1A70fHhVdvTg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-botservice.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-botservice.html",
-          "hash": "cu0AHQI9fA6ua83HyQSTXA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-cdn.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-cdn.html",
-          "hash": "rSRH1q10ilGgGMZgRvoZNQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-cognitiveservices.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-cognitiveservices.html",
-          "hash": "/CeWr3qxiVoW9fSKOvv43w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-commerce.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-commerce.html",
-          "hash": "YMqdgHBpZ2h6NRu+7JB1ow=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-commitmentplans.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-commitmentplans.html",
-          "hash": "TL65pCvc1QUFyReB/1LzqQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-compute-profile-2019-03-01-hybrid.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-compute-profile-2019-03-01-hybrid.html",
-          "hash": "jkMJpyOVegnqGirjsu8ZkQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-compute.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-compute.html",
-          "hash": "6nn+TBqYxZ2xVtM2HTGEBw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-consumption.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-consumption.html",
-          "hash": "xm1eKHBecCu0bPZZr0jXxw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-containerinstance.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-containerinstance.html",
-          "hash": "v3i+Qe31fPRGy+hEEu0okQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-containerregistry.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-containerregistry.html",
-          "hash": "mg/kbqfsMLgqx2Kpl7ViBw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-containerservice.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-containerservice.html",
-          "hash": "5IJBcBu3hRM9vkN16YoTbA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-cosmosdb.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-cosmosdb.html",
-          "hash": "MIWH4nHCt1ZSBUqbSOFktA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-customerinsights.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-customerinsights.html",
-          "hash": "rrNAH/faLcEv6WONaNCsIQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-databox.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-databox.html",
-          "hash": "Iq+0rFpaaDMPZ2XHeQXs4g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-databricks.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-databricks.html",
-          "hash": "tNaWWHH/7w7V2KdqzTk+qA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-datacatalog.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-datacatalog.html",
-          "hash": "P7XnznlZwUAqG20qqzVcfg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-datafactory.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-datafactory.html",
-          "hash": "xkX1cLbO8Kf4s6zJPzkypg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-datamigration.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-datamigration.html",
-          "hash": "2TFqx1IlBF1Q5Q1KXmlBMQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-deploymentmanager.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-deploymentmanager.html",
-          "hash": "e12RBFTm3p2JzXylFLNttw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-deviceprovisioningservices.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-deviceprovisioningservices.html",
-          "hash": "xQUcfvRoTR78jGpNA2RzcQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-devspaces.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-devspaces.html",
-          "hash": "F4gefUNdhyM++fcE1/uEhg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-devtestlabs.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-devtestlabs.html",
-          "hash": "oZ+kWAm6LDhIxkbncVhF5g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-dns-profile-2019-03-01-hybrid.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-dns-profile-2019-03-01-hybrid.html",
-          "hash": "Wi0+bszwEfVW6ojZfFjANw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-dns.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-dns.html",
-          "hash": "BYbFqM11q/O7FWiBOtX95g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-domainservices.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-domainservices.html",
-          "hash": "9753ZInK+LSYpdM7dDzPKA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-edgegateway.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-edgegateway.html",
-          "hash": "Cagv0Pvr2CsjoZf0i48uXQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-eventgrid.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-eventgrid.html",
-          "hash": "hMKiezzavFHPiof5Tyr4QQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-eventhub.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-eventhub.html",
-          "hash": "N5py2bNZ5ZlbHH7ClPtROQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-features.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-features.html",
-          "hash": "xY5xPBGz6DZHE4HPfH+qTg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-frontdoor.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-frontdoor.html",
-          "hash": "8Ee9kwQTlrEm5kH+qsAUjg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-hanaonazure.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-hanaonazure.html",
-          "hash": "kwDeP46awJ8mqZOYVsyGfA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-hdinsight.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-hdinsight.html",
-          "hash": "m0h7b44hl/IR5tjj+Ww4eQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-iotcentral.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-iotcentral.html",
-          "hash": "cGJE/XikppJgXsZqYvx9wg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-iothub.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-iothub.html",
-          "hash": "1gyajHHRbJPtu9SwABvqGA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-iotspaces.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-iotspaces.html",
-          "hash": "abIHwtGauAwDDgYk4/X+hw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-keyvault-profile-2019-03-01-hybrid.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-keyvault-profile-2019-03-01-hybrid.html",
-          "hash": "TAtJJPT4Rutg/U4V6JQgSQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-keyvault.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-keyvault.html",
-          "hash": "pfhoIRdWJa89QZEQ4R0OYA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-kusto.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-kusto.html",
-          "hash": "TZ2VSU4XtyW5R3BhwnmpoQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-labservices.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-labservices.html",
-          "hash": "/kRsa4xupvHCA1OB4szBLQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-links.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-links.html",
-          "hash": "PJfUvw7+LKbYwq8tbCc1WQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-locks-profile-hybrid-2019-03-01.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-locks-profile-hybrid-2019-03-01.html",
-          "hash": "zRmfNywrMMvNUh5N4yLkvA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-locks.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-locks.html",
-          "hash": "AO3kvKKCh5JK1zhvzGZaxQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-logic.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-logic.html",
-          "hash": "6fvdR10njoYG5kpfalHXMw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-machinelearningcompute.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-machinelearningcompute.html",
-          "hash": "Hcwv1dvhtAnhAFaRneJ7YA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-machinelearningexperimentation.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-machinelearningexperimentation.html",
-          "hash": "LXjoSEzj6DvssUuygHPmgQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-machinelearningservices.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-machinelearningservices.html",
-          "hash": "tunJBvwYFPYtflMAWF2MHg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-managedapplications.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-managedapplications.html",
-          "hash": "nMi4++fiXZ5+Bfmiz973hA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-managementgroups.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-managementgroups.html",
-          "hash": "4TZUGteH2Q8zpz39KXHhwQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-managementpartner.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-managementpartner.html",
-          "hash": "+4pg3q0J6qIUIzHbEdnojQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-maps.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-maps.html",
-          "hash": "lb8ohZWXfuzPDr2PMGL9hw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-mariadb.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-mariadb.html",
-          "hash": "zmnbNzQpfK+ezRGJqh+Rgw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-marketplaceordering.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-marketplaceordering.html",
-          "hash": "fcm+ClanSR09nkJd7qk+XA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-mediaservices.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-mediaservices.html",
-          "hash": "ZxgT8QohzLi2FDJScvWLJw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-migrate.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-migrate.html",
-          "hash": "HjZ2rodTgINYrZlUehlYCg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-mixedreality.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-mixedreality.html",
-          "hash": "RMZyHnO1K9IAJbbAQhzNCA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-monitor-profile-2019-03-01-hybrid.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-monitor-profile-2019-03-01-hybrid.html",
-          "hash": "osLUb/VkFiwRxVmAf4ZZpQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-monitor.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-monitor.html",
-          "hash": "30e7WJar0HrPJKBsjzoXbQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-msi.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-msi.html",
-          "hash": "vvv5XJkYBlYZGGpgjPDXeg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-mysql.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-mysql.html",
-          "hash": "uiomO1IIuoH6kOpYuvBvcQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-netapp.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-netapp.html",
-          "hash": "Y2ISjFodt5AJ5nAK4DXj3Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-network-profile-2019-03-01-hybrid.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-network-profile-2019-03-01-hybrid.html",
-          "hash": "KCqFBrSsRV7z13U62ScPCA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-network.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-network.html",
-          "hash": "b9SFDf6Ygt9GisdNFFcUjQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-notificationhubs.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-notificationhubs.html",
-          "hash": "c8Ji47N4HWC0AL45mYJ19A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-operationalinsights.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-operationalinsights.html",
-          "hash": "03hoy2GFk0ERHo3k+whshg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-operations.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-operations.html",
-          "hash": "BrAASEyjgK6khcP+Z3BwhA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-peering.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-peering.html",
-          "hash": "NMFQ1hzoZdQKODMK1EL89w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-policy-profile-hybrid-2019-03-01.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-policy-profile-hybrid-2019-03-01.html",
-          "hash": "PL914QywdLeAptJBC9NK1w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-policy.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-policy.html",
-          "hash": "pK0EJOCLCaF/WNPjXLzKBw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-policyinsights.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-policyinsights.html",
-          "hash": "EGt1jLfAmVuQZrJGlcoR/w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-postgresql.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-postgresql.html",
-          "hash": "0MtAd8b0PrA3/S89Ntth1A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-powerbidedicated.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-powerbidedicated.html",
-          "hash": "HFNgeeWFEKt1sljcA+yhqw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-powerbiembedded.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-powerbiembedded.html",
-          "hash": "NbgC8LsARsRhdvG6qezOZQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-privatedns.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-privatedns.html",
-          "hash": "93ZAkHmhxiuv9B0p5dIbAA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-recoveryservices-siterecovery.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-recoveryservices-siterecovery.html",
-          "hash": "d8JSpd4tA+4C90tTpK8rBA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-recoveryservices.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-recoveryservices.html",
-          "hash": "bAexksmWTVu5bGo6RMOHgA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-recoveryservicesbackup.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-recoveryservicesbackup.html",
-          "hash": "NIMh+X4klhv8VvOO85G8Vw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-rediscache.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-rediscache.html",
-          "hash": "kQToTsuQ0Q9wbSCLhcXIkQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-relay.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-relay.html",
-          "hash": "+I9SVOkAj8zNkgHQAkkfHw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-reservations.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-reservations.html",
-          "hash": "NhbOlmGvyn/JU+eeNT4zbg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-resourcegraph.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-resourcegraph.html",
-          "hash": "EDUDlUkiDdmXF8futWeRCg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-resourcehealth.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-resourcehealth.html",
-          "hash": "w50sdMwUd1s5Kr7z7AVArQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-resources-profile-hybrid-2019-03-01.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-resources-profile-hybrid-2019-03-01.html",
-          "hash": "xYN3aGbym94fZ50xtxBc6w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-resources.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-resources.html",
-          "hash": "oXmX3MQx6keYFz/xuEF2aw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-search.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-search.html",
-          "hash": "VWHjX59TOnkXy7u/cQhGsQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-security.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-security.html",
-          "hash": "e2vXB8CQWAE4JwGBt1m2VA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-serialconsole.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-serialconsole.html",
-          "hash": "KlElQQwGhGeA4dWVSUOk2A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-servicebus.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-servicebus.html",
-          "hash": "RYs1c93HLYFw9IWRXObLDQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-servicefabricmesh.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-servicefabricmesh.html",
-          "hash": "0yh1jdIB9DRRpGhBeK2dMg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-servicemap.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-servicemap.html",
-          "hash": "t4xtVa1SPHS9XuAegAmgVw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-signalr.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-signalr.html",
-          "hash": "awrni6etE9N2Z/A9SiFyfg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-sql.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-sql.html",
-          "hash": "ssNiF3VNkO9qzu/EngUDfA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-sqlvirtualmachine.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-sqlvirtualmachine.html",
-          "hash": "LJ8ZcPbii5tq3NgE4JlTCQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-storage-profile-2019-03-01-hybrid.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-storage-profile-2019-03-01-hybrid.html",
-          "hash": "HcB31/Z0lKm4OiRx7c9fRg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-storage.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-storage.html",
-          "hash": "CoQhaa9RIquPTWxgHbs6NQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-storageimportexport.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-storageimportexport.html",
-          "hash": "ySH/JvEiB/reILkmlkPSHA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-storagesync.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-storagesync.html",
-          "hash": "mLyBVNwCy5rl97xv6w0jZw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-storsimple1200series.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-storsimple1200series.html",
-          "hash": "qLQpOuSWy89qwKjQPfvG3Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-storsimple8000series.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-storsimple8000series.html",
-          "hash": "Iui5UdzvoomlbfCR55i60A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-streamanalytics.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-streamanalytics.html",
-          "hash": "rKnkLwmTj43aqlQ4viVr+A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-subscriptions-profile-hybrid-2019-03-01.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-subscriptions-profile-hybrid-2019-03-01.html",
-          "hash": "PLMluWXzto1flzck/sBa9w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-subscriptions.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-subscriptions.html",
-          "hash": "qDCWt+EGOn94Jl5OJkzzTg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-timeseriesinsights.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-timeseriesinsights.html",
-          "hash": "8uX+hVTH8iS23t6zJJQM9g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-trafficmanager.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-trafficmanager.html",
-          "hash": "b59a07/z0pO6sFfuxlMKlQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-visualstudio.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-visualstudio.html",
-          "hash": "389RTjvSGSoqo5yXnbb3Hw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-vmwarecloudsimple.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-vmwarecloudsimple.html",
-          "hash": "Wx02gyIbMaCvj66b2POBMQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-webservices.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-webservices.html",
-          "hash": "lSB7NJRW2QjuhV16B+p1WA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/arm-workspaces.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/arm-workspaces.html",
-          "hash": "BnjLDcKHIppmv6XZgYLapQ=="
+          "relative_path": "api/azurestack.html",
+          "hash": "vyw65ghe0pB+qSgRTiDYmQ=="
         }
       },
       "is_incremental": false,
@@ -1497,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/batch.html",
-          "hash": "rUKoKzTv5MpR1bz9mwc+NQ=="
+          "hash": "sp7oFKTaQX2zwVr//4BnzA=="
         }
       },
       "is_incremental": false,
@@ -1505,11 +125,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-anomalydetector.md",
+      "source_relative_path": "api/batchai.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-anomalydetector.html",
-          "hash": "T0JqCHbWESLE+GUWDdyE1A=="
+          "relative_path": "api/batchai.html",
+          "hash": "Z9xI9zmw/wx7HZCO8DyjPA=="
         }
       },
       "is_incremental": false,
@@ -1517,11 +137,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-autosuggest.md",
+      "source_relative_path": "api/billing.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-autosuggest.html",
-          "hash": "ePWr+ER7JghkMSX5zgES5A=="
+          "relative_path": "api/billing.html",
+          "hash": "Tp1mZNLgd1H33Ur0QZyhOA=="
         }
       },
       "is_incremental": false,
@@ -1529,11 +149,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-computervision.md",
+      "source_relative_path": "api/botservice.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-computervision.html",
-          "hash": "qWJBBTO1fwg1j2DdwuHd0w=="
+          "relative_path": "api/botservice.html",
+          "hash": "jvt9XsCWwjm1VM5sewvjLg=="
         }
       },
       "is_incremental": false,
@@ -1541,11 +161,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-contentmoderator.md",
+      "source_relative_path": "api/cdn.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-contentmoderator.html",
-          "hash": "TaJzEQKRDDo4SYlYx9K3Ow=="
+          "relative_path": "api/cdn.html",
+          "hash": "/+73KylIYzMffPfTjccnmw=="
         }
       },
       "is_incremental": false,
@@ -1553,11 +173,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-customimagesearch.md",
+      "source_relative_path": "api/cognitiveservices.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-customimagesearch.html",
-          "hash": "QOF3abxywbzjLkpN3g37Kg=="
+          "relative_path": "api/cognitiveservices.html",
+          "hash": "y14lHRk1bzOHSK/uukW1+Q=="
         }
       },
       "is_incremental": false,
@@ -1565,11 +185,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-customsearch.md",
+      "source_relative_path": "api/commerce.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-customsearch.html",
-          "hash": "rPehHH/XpuJ7Om8IBjDHhA=="
+          "relative_path": "api/commerce.html",
+          "hash": "Uv/OGcim0aL91MxhY4zzyw=="
         }
       },
       "is_incremental": false,
@@ -1577,11 +197,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-customvision-prediction.md",
+      "source_relative_path": "api/compute.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-customvision-prediction.html",
-          "hash": "welclDxu4oANCo8NGC2z4A=="
+          "relative_path": "api/compute.html",
+          "hash": "ihZfUh8uux9B7T++R6IJ/w=="
         }
       },
       "is_incremental": false,
@@ -1589,11 +209,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-customvision-training.md",
+      "source_relative_path": "api/consumption.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-customvision-training.html",
-          "hash": "BadjWz3nBkQKqsoWyKURGw=="
+          "relative_path": "api/consumption.html",
+          "hash": "m4lBD3owbxc9f/p5ndNLOg=="
         }
       },
       "is_incremental": false,
@@ -1601,11 +221,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-entitysearch.md",
+      "source_relative_path": "api/containerinstance.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-entitysearch.html",
-          "hash": "uT/o/WOMnRItSxRNDGy4xA=="
+          "relative_path": "api/containerinstance.html",
+          "hash": "s/fQ+dHHcmF7aVvPXgH4Fw=="
         }
       },
       "is_incremental": false,
@@ -1613,11 +233,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-face.md",
+      "source_relative_path": "api/containerregistry.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-face.html",
-          "hash": "t/sk6WhUBiqB/ETGXcel0w=="
+          "relative_path": "api/containerregistry.html",
+          "hash": "QHU5Q5QG3z6scNyZlK6NjQ=="
         }
       },
       "is_incremental": false,
@@ -1625,11 +245,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-formrecognizer.md",
+      "source_relative_path": "api/containerservice.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-formrecognizer.html",
-          "hash": "7r8ft1sUodRFPllqlkUaww=="
+          "relative_path": "api/containerservice.html",
+          "hash": "LnhqZKHGhlZKVFjcddDE+A=="
         }
       },
       "is_incremental": false,
@@ -1637,11 +257,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-imagesearch.md",
+      "source_relative_path": "api/core.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-imagesearch.html",
-          "hash": "WQpINpq3MLkLLA220M7Ywg=="
+          "relative_path": "api/core.html",
+          "hash": "tHaBpiIrOl6hs8UFTo4lNA=="
         }
       },
       "is_incremental": false,
@@ -1649,11 +269,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-localsearch.md",
+      "source_relative_path": "api/cosmosdb.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-localsearch.html",
-          "hash": "MtRi8ZN6yuRIiS/HClc/9Q=="
+          "relative_path": "api/cosmosdb.html",
+          "hash": "iXL1ZFxvG2bBbvj3aU4kFQ=="
         }
       },
       "is_incremental": false,
@@ -1661,11 +281,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-luis-authoring.md",
+      "source_relative_path": "api/customer-insights.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-luis-authoring.html",
-          "hash": "2YGHVLvsbj8n532GAUAIZw=="
+          "relative_path": "api/customer-insights.html",
+          "hash": "JvuSbO6XgvHLHky5n14MXw=="
         }
       },
       "is_incremental": false,
@@ -1673,11 +293,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-luis-runtime.md",
+      "source_relative_path": "api/databox.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-luis-runtime.html",
-          "hash": "+elPFTXlKBbh7HktrNWpgQ=="
+          "relative_path": "api/databox.html",
+          "hash": "VTCEoQWq48OHh9izG2BXjg=="
         }
       },
       "is_incremental": false,
@@ -1685,11 +305,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-newssearch.md",
+      "source_relative_path": "api/databricks.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-newssearch.html",
-          "hash": "eO7w6TZyfUq3podC3AqKbw=="
+          "relative_path": "api/databricks.html",
+          "hash": "G0fzsr5lXSUPMNt+JEiqiA=="
         }
       },
       "is_incremental": false,
@@ -1697,11 +317,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-personalizer.md",
+      "source_relative_path": "api/datacatalog.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-personalizer.html",
-          "hash": "Ux6A/AyZVX721QvV0rdOPw=="
+          "relative_path": "api/datacatalog.html",
+          "hash": "tVNOKO5B5o2rkJ3SOQ8C1A=="
         }
       },
       "is_incremental": false,
@@ -1709,11 +329,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-qnamaker.md",
+      "source_relative_path": "api/datafactory.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-qnamaker.html",
-          "hash": "aKtOh3zsGRteLpeZfdf1wA=="
+          "relative_path": "api/datafactory.html",
+          "hash": "r0VMZI4J+hruelPhjca3Nw=="
         }
       },
       "is_incremental": false,
@@ -1721,11 +341,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-spellcheck.md",
+      "source_relative_path": "api/datamigration.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-spellcheck.html",
-          "hash": "mJXy9RygA9/Y69Ay02+wTA=="
+          "relative_path": "api/datamigration.html",
+          "hash": "wKkuqWH5/AKLxqtclyvolQ=="
         }
       },
       "is_incremental": false,
@@ -1733,11 +353,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-textanalytics.md",
+      "source_relative_path": "api/deploymentmanager.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-textanalytics.html",
-          "hash": "N8MMPJxT//F+sV8Xu4QSpg=="
+          "relative_path": "api/deploymentmanager.html",
+          "hash": "fmBEpIOLC3z6tdPrnpJauA=="
         }
       },
       "is_incremental": false,
@@ -1745,11 +365,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-translatortext.md",
+      "source_relative_path": "api/deviceprovisioningservices.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-translatortext.html",
-          "hash": "e57YJUhQ5lUXCCVmiANDTA=="
+          "relative_path": "api/deviceprovisioningservices.html",
+          "hash": "UF6NDKVNr24ARyffCxLe3w=="
         }
       },
       "is_incremental": false,
@@ -1757,11 +377,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-videosearch.md",
+      "source_relative_path": "api/devspaces.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-videosearch.html",
-          "hash": "yP3xs8o9nCe7WdjJpGXFbQ=="
+          "relative_path": "api/devspaces.html",
+          "hash": "dawbie8AxNJ7RmOmmjQ0Eg=="
         }
       },
       "is_incremental": false,
@@ -1769,11 +389,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-visualsearch.md",
+      "source_relative_path": "api/devtestlabs.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-visualsearch.html",
-          "hash": "x1xWNlWsuTI6RG5ITb3XFA=="
+          "relative_path": "api/devtestlabs.html",
+          "hash": "HfMxFWt3awFC04+Zhz5Ofg=="
         }
       },
       "is_incremental": false,
@@ -1781,11 +401,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/cognitiveservices-websearch.md",
+      "source_relative_path": "api/dns.md",
       "output": {
         ".html": {
-          "relative_path": "api/cognitiveservices-websearch.html",
-          "hash": "6VUcOh7X9yIG+paCmciD4Q=="
+          "relative_path": "api/dns.html",
+          "hash": "LS2dJyvKc68b/ICj1wMrTQ=="
         }
       },
       "is_incremental": false,
@@ -1793,11 +413,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/core-amqp.md",
+      "source_relative_path": "api/domainservices.md",
       "output": {
         ".html": {
-          "relative_path": "api/core-amqp.html",
-          "hash": "O88FB24f/CGwFm2aaKL6Cw=="
+          "relative_path": "api/domainservices.html",
+          "hash": "pOL5rOCssKILSWXo1TXY6Q=="
         }
       },
       "is_incremental": false,
@@ -1805,59 +425,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/core-asynciterator-polyfill.md",
+      "source_relative_path": "api/edgegateway.md",
       "output": {
         ".html": {
-          "relative_path": "api/core-asynciterator-polyfill.html",
-          "hash": "rtkXu0l1jMHATFwSYiFOww=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/core-auth.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/core-auth.html",
-          "hash": "lN14svwpFLhBba3euySrgw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/core-paging.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/core-paging.html",
-          "hash": "VfqB6XXYdfs2gliqpA6Kdw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/event-hubs.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/event-hubs.html",
-          "hash": "Ezqfmww1xBqtqFPwYqjOPg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/event-processor-host.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/event-processor-host.html",
-          "hash": "pLTvEumTzVSayZ+FzsXKoA=="
+          "relative_path": "api/edgegateway.html",
+          "hash": "SQ0cOngsqYyoOmbJZl9g+Q=="
         }
       },
       "is_incremental": false,
@@ -1869,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "api/eventgrid.html",
-          "hash": "UvNyXw+lDVdh1gC3GBbhzQ=="
+          "hash": "PzinsnRNPvMJUEtmkAKfaA=="
         }
       },
       "is_incremental": false,
@@ -1877,11 +449,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/eventhubs-checkpointstore-blob.md",
+      "source_relative_path": "api/eventhub.md",
       "output": {
         ".html": {
-          "relative_path": "api/eventhubs-checkpointstore-blob.html",
-          "hash": "60qfmGMpPMXUlsgluSKhqg=="
+          "relative_path": "api/eventhub.html",
+          "hash": "N+SiyJG5jQTgk3LAyT6daw=="
         }
       },
       "is_incremental": false,
@@ -1889,11 +461,59 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/graph.md",
+      "source_relative_path": "api/features.md",
       "output": {
         ".html": {
-          "relative_path": "api/graph.html",
-          "hash": "Pxq5DxakgdS5B1GaW5O50w=="
+          "relative_path": "api/features.html",
+          "hash": "8gqlgsd27oIVFqoED/N0tQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/frontdoor.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/frontdoor.html",
+          "hash": "pY6xykpKGaFfuydE4YV2Fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/graphrbac.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/graphrbac.html",
+          "hash": "9ksXne3THrQYicpe9V/y6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/hanaonazure.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/hanaonazure.html",
+          "hash": "OwUyhD5510gvtH+xb6X02Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/hdinsight.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/hdinsight.html",
+          "hash": "erX1x0mrU3Ht+3m87fdrhg=="
         }
       },
       "is_incremental": false,
@@ -1905,19 +525,22 @@
       "output": {
         ".html": {
           "relative_path": "api/identity.html",
-          "hash": "dTQXMiHC6JPQHXdDLlL9gg=="
+          "hash": "3UFuvfKP7zCCpEf4L2LQHA=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "PBQKfHNtgDlE1LsPOFJzsw=="
+          "hash": "AG7GUcybG9uF2Syjhubfzg=="
         }
       },
       "is_incremental": false,
@@ -1925,11 +548,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/keyvault-certificates.md",
+      "source_relative_path": "api/iotcentral.md",
       "output": {
         ".html": {
-          "relative_path": "api/keyvault-certificates.html",
-          "hash": "YoLKVTlC6zKWhcrhF4Of4A=="
+          "relative_path": "api/iotcentral.html",
+          "hash": "/8r0eWWafnBUhvZohiqFeQ=="
         }
       },
       "is_incremental": false,
@@ -1937,11 +560,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/keyvault-keys.md",
+      "source_relative_path": "api/iothub.md",
       "output": {
         ".html": {
-          "relative_path": "api/keyvault-keys.html",
-          "hash": "SxazC6HPdDepLM477WDb5A=="
+          "relative_path": "api/iothub.html",
+          "hash": "Jpf+4/KiOKQarEKC0Op6EQ=="
         }
       },
       "is_incremental": false,
@@ -1949,11 +572,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/keyvault-secrets.md",
+      "source_relative_path": "api/iotspaces.md",
       "output": {
         ".html": {
-          "relative_path": "api/keyvault-secrets.html",
-          "hash": "Z4IHoqkTbKMzs0T7EBTfEA=="
+          "relative_path": "api/iotspaces.html",
+          "hash": "XAX3Wqeq3OEKFqd069+orA=="
         }
       },
       "is_incremental": false,
@@ -1961,11 +584,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/loganalytics.md",
+      "source_relative_path": "api/keyvault.md",
       "output": {
         ".html": {
-          "relative_path": "api/loganalytics.html",
-          "hash": "SM4fwV1Yz5eJ/YgW21ev0Q=="
+          "relative_path": "api/keyvault.html",
+          "hash": "Hj8aUt3AqRz7jP6PZ116kw=="
         }
       },
       "is_incremental": false,
@@ -1973,11 +596,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/logger.md",
+      "source_relative_path": "api/kusto.md",
       "output": {
         ".html": {
-          "relative_path": "api/logger.html",
-          "hash": "Vi1p0XYfW7KMDyGCDjFTMA=="
+          "relative_path": "api/kusto.html",
+          "hash": "DHULcXb2JB7BqpdDtYqVXA=="
         }
       },
       "is_incremental": false,
@@ -1985,11 +608,551 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/service-bus.md",
+      "source_relative_path": "api/labservices.md",
       "output": {
         ".html": {
-          "relative_path": "api/service-bus.html",
-          "hash": "vTOwEHuL6MNflkGxhSBnSg=="
+          "relative_path": "api/labservices.html",
+          "hash": "IJDQGFZU0GrkEkSpdtFLuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/links.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/links.html",
+          "hash": "fVFOPyhOrFD+9+62g/Ps/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/locks.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/locks.html",
+          "hash": "9yg4pUudmRSm38NvwIGJtg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/logic.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/logic.html",
+          "hash": "PHATEWPFYN1tFmRohgE0tg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/machinelearning.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/machinelearning.html",
+          "hash": "hZNubeB/P6Chxpz3TRUlkg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/machinelearningcompute.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/machinelearningcompute.html",
+          "hash": "M8guwKiqaM5t5+OVqrjsEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/machinelearningexperimentation.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/machinelearningexperimentation.html",
+          "hash": "H0qA7BzsX7r3+Gt461c06g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/machinelearningservices.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/machinelearningservices.html",
+          "hash": "U2tJM9XhJ6dHF4gA4jqh2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/managedapplications.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/managedapplications.html",
+          "hash": "KKGfC8nbB90yiI5dNr4GMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/managementgroups.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/managementgroups.html",
+          "hash": "UvWJO/4B1XIckRsXTJwvWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/managementpartner.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/managementpartner.html",
+          "hash": "OXSWvVB1UQtkSjOIn7FChQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/maps.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/maps.html",
+          "hash": "AkMj568xWwcVPycXLxmUfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/mariadb.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/mariadb.html",
+          "hash": "UgfS39o3BOHmdoP53xdgBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/marketplaceordering.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/marketplaceordering.html",
+          "hash": "vQDFSSOJqch6IMULRxZwKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/mediaservices.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/mediaservices.html",
+          "hash": "nK5FLeADR5Wg7P6GujgH4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/migrate.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/migrate.html",
+          "hash": "cnHJZEpRO9hbKh+AMX8KGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/mixedreality.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/mixedreality.html",
+          "hash": "zolNLp0JCTUnK90AwmyWEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/monitor.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/monitor.html",
+          "hash": "iPhodIpq2+f8mjxG7j472w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/msi.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/msi.html",
+          "hash": "zLAO40uVkniYrlURN4E59A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/mysql.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/mysql.html",
+          "hash": "RczWrzgM3EbuZch4lZJVJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/netapp.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/netapp.html",
+          "hash": "ytMFV/96TpCWTdVM/BTFoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/network.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/network.html",
+          "hash": "BZ/Hbai2k3SMkrNy4J8cCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/notificationhubs.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/notificationhubs.html",
+          "hash": "o85JEsXRYRWDOglhFzdtdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/operationalinsights.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/operationalinsights.html",
+          "hash": "1PvBevmvEXNuk3WRiyghqA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/operationsmanagement.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/operationsmanagement.html",
+          "hash": "0LJfqYpvQHw7bdbux64/EA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/peering.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/peering.html",
+          "hash": "9jTY08DYNb6uQKOAXdY2HQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/policy.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/policy.html",
+          "hash": "Q4Z2cpgBYKwBkoBliiAmcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/policyinsights.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/policyinsights.html",
+          "hash": "fPLR/zLy5a2jnW2cbC1fYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/postgresql.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/postgresql.html",
+          "hash": "6tnZwNBMxczcQLbExAsg1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/powerbidedicated.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/powerbidedicated.html",
+          "hash": "RniiKt/hzdVq6tGTOgOR1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/powerbiembedded.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/powerbiembedded.html",
+          "hash": "1hnyrNar8V4SyJBx8i1xag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/privatedns.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/privatedns.html",
+          "hash": "xFoDbuCJaLlnyaH+/RkpIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/recoveryservices.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/recoveryservices.html",
+          "hash": "Gc9X793MI1sC6KXR7CiaNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/recoveryservicesbackup.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/recoveryservicesbackup.html",
+          "hash": "Tu0vbUROPp8yjzhnfNlLXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/recoveryservicessiterecovery.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/recoveryservicessiterecovery.html",
+          "hash": "afd00QnDQQ35gQRVeN/NNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/redis.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/redis.html",
+          "hash": "mQW4G9KXKhcCmzOOGhzVxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/relay.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/relay.html",
+          "hash": "Vg6MRHdlmQ4CWEZd9CYgLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/reservations.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/reservations.html",
+          "hash": "KMmZwE/o+yDYW/1PK+/UJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/resourcegraph.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/resourcegraph.html",
+          "hash": "WNGciRH85uluHnUN71CDKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/resourcehealth.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/resourcehealth.html",
+          "hash": "md8QgoB+cFKPCbQaPOeVBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/resources.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/resources.html",
+          "hash": "h+VueJRfe/qtc69z75BaZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/search.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/search.html",
+          "hash": "Mu2oAzxfXPx+y+acqcDIFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/security.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/security.html",
+          "hash": "j+WGFsctrqvoPzWRGguriw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/serialconsole.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/serialconsole.html",
+          "hash": "i/Lo7WSwBu7SpFUfsM8AQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/service-map.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/service-map.html",
+          "hash": "NjQoXvbh+GkbiJhntJMaLA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/servicebus.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/servicebus.html",
+          "hash": "0YoFD7UiaJdmCBkSJkx1jw=="
         }
       },
       "is_incremental": false,
@@ -2001,7 +1164,7 @@
       "output": {
         ".html": {
           "relative_path": "api/servicefabric.html",
-          "hash": "186+pW0yDh2kaEg8TUL8xQ=="
+          "hash": "9rivVfPBzJCXlrgHVAGHmQ=="
         }
       },
       "is_incremental": false,
@@ -2009,11 +1172,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/storage-blob.md",
+      "source_relative_path": "api/servicefabricmesh.md",
       "output": {
         ".html": {
-          "relative_path": "api/storage-blob.html",
-          "hash": "+AA4yb15TzGFwSKAG8JJeg=="
+          "relative_path": "api/servicefabricmesh.html",
+          "hash": "Px9iwP9aMkSmVHeWNFBL8g=="
         }
       },
       "is_incremental": false,
@@ -2021,11 +1184,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/storage-datalake.md",
+      "source_relative_path": "api/signalr.md",
       "output": {
         ".html": {
-          "relative_path": "api/storage-datalake.html",
-          "hash": "Iw+F9qGGaBQ3uItlA0e5Hg=="
+          "relative_path": "api/signalr.html",
+          "hash": "aK1dxD75dDhQOZzMr3hSqw=="
         }
       },
       "is_incremental": false,
@@ -2033,11 +1196,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/storage-file.md",
+      "source_relative_path": "api/sql.md",
       "output": {
         ".html": {
-          "relative_path": "api/storage-file.html",
-          "hash": "RtYixHj4quiOwThiCIpJeg=="
+          "relative_path": "api/sql.html",
+          "hash": "RtSdKe8Q4h/poL6/R+d7jw=="
         }
       },
       "is_incremental": false,
@@ -2045,11 +1208,95 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/storage-queue.md",
+      "source_relative_path": "api/sqlvirtualmachine.md",
       "output": {
         ".html": {
-          "relative_path": "api/storage-queue.html",
-          "hash": "D3WgXpdYlAhO/9D/jdG4PQ=="
+          "relative_path": "api/sqlvirtualmachine.html",
+          "hash": "3SMtKXub4nojL7Zjgs/knQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/storage.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/storage.html",
+          "hash": "Dc53TUV3fYp0FteKQPQb7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/storageimportexport.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/storageimportexport.html",
+          "hash": "x2juli8rLBlJPJGVfHCsHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/storagesync.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/storagesync.html",
+          "hash": "OkvjLMFwAIWnQeB5MnjpWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/storsimple1200series.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/storsimple1200series.html",
+          "hash": "Crz4NL3oEKfi2c2MxWa4ww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/storsimple8000series.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/storsimple8000series.html",
+          "hash": "YpmWcEZ8GX/BP4TieNKDnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/streamanalytics.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/streamanalytics.html",
+          "hash": "k165ggzBQDcQ3eq8a5ghiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/subscription.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/subscription.html",
+          "hash": "Bp1BgyhSHNE5cAnIZuDwzw=="
         }
       },
       "is_incremental": false,
@@ -2061,37 +1308,91 @@
       "output": {
         ".html": {
           "relative_path": "api/template.html",
-          "hash": "L9S6bqRGj84U3TFL4zE0BA=="
+          "hash": "bmFsFUH4p8jVMBOq8PG74w=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "UidNotFound"
-      ],
+      "type": "Conceptual",
+      "source_relative_path": "api/test-utils.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/test-utils.html",
+          "hash": "6kbv9FXVydPJf9CvWq5HUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/timeseriesinsights.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/timeseriesinsights.html",
+          "hash": "kaelNiL5/ms3PwT8Ocu/zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "Cd4qdkym90rwTeuyOIw3fQ=="
+          "hash": "oMPd/AJXysr4x80LqmJHzQ=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
+      "type": "Conceptual",
+      "source_relative_path": "api/trafficmanager.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/trafficmanager.html",
+          "hash": "ypTqlt9ep+rPcSKbIzcmFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/visualstudio.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/visualstudio.html",
+          "hash": "eiVwp3z/9BoaWQgkwSQwxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/vmwarecloudsimple.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/vmwarecloudsimple.html",
+          "hash": "tla0F+/rtGnne44dtimzeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "dH53xc8qGCcA2tQ2qhzYOw=="
+          "hash": "DdL8ArSZ+DOls2QkNZS6AA=="
         }
       },
       "is_incremental": false,
@@ -2131,7 +1432,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 173,
+          "total_file_count": 115,
           "skipped_file_count": 0
         }
       }
