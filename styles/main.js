@@ -1,93 +1,5 @@
-// Use container fluid
-var containers = $(".container");
-containers.removeClass("container");
-containers.addClass("container-fluid");
-
 var WINDOW_CONTENTS = window.location.href.split("/");
 var SELECTED_LANGUAGE = "javascript";
-
-// Navbar Hamburger
-$(function() {
-  $(".navbar-toggle").click(function() {
-    $(this).toggleClass("change");
-  });
-});
-
-// Select list to replace affix on small screens
-$(function() {
-  var navItems = $(".sideaffix .level1 > li");
-
-  if (navItems.length == 0) {
-    return;
-  }
-
-  var selector = $("<select/>");
-  selector.addClass("form-control visible-sm visible-xs");
-  var form = $("<form/>");
-  form.append(selector);
-  form.prependTo("article");
-
-  selector.change(function() {
-    window.location = $(this)
-      .find("option:selected")
-      .val();
-  });
-
-  function work(item, level) {
-    var link = item.children("a");
-
-    var text = link.text();
-
-    for (var i = 0; i < level; ++i) {
-      text = "&nbsp;&nbsp;" + text;
-    }
-
-    selector.append(
-      $("<option/>", {
-        value: link.attr("href"),
-        html: text
-      })
-    );
-
-    var nested = item.children("ul");
-
-    if (nested.length > 0) {
-      nested.children("li").each(function() {
-        work($(this), level + 1);
-      });
-    }
-  }
-
-  navItems.each(function() {
-    work($(this), 0);
-  });
-});
-
-// Inject line breaks and spaces into the code sections
-$(function() {
-  $(".lang-csharp").each(function() {
-    var text = $(this).html();
-    text = text.replace(
-      /, /g,
-      ",</br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;"
-    );
-    $(this).html(text);
-  });
-});
-
-// Inject Artifact Versions
-$(function() {
-  var urlarr = window.location.href.split("/");
-  var pkgname = urlarr[urlarr.length - 1].replace(".html", "");
-  $("#publisedversions").each(function() {
-    var text = $(this).html();
-    text = text.replace(
-      /, /g,
-      ",</br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;"
-    );
-    $(this).html(text);
-  });
-});
 
 function httpGetAsync(targetUrl, callback) {
   var xmlHttp = new XMLHttpRequest();
@@ -147,9 +59,11 @@ function getPackageUrl(language, package, version) {
 }
 // Populate Index
 $(function() {
-  $('h3').each(function () {
-    var pkgName = $(this).text().replace("@azure/","azure-");
+  $("h3").each(function() {
+    var pkgName = $(this)
+      .text()
+      .replace("@azure/", "azure-");
     console.log(pkgName);
-    populateIndexList($(this), pkgName)
+    populateIndexList($(this), pkgName);
   });
 });
