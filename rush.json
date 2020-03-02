@@ -453,6 +453,11 @@
       "versionPolicyName": "client"
     },
     {
+      "packageName": "@azure/synapse",
+      "projectFolder": "sdk/synapse/synapse",
+      "versionPolicyName": "client"
+    },
+    {
       "packageName": "@azure/template",
       "projectFolder": "sdk/template/template",
       "versionPolicyName": "utility"
