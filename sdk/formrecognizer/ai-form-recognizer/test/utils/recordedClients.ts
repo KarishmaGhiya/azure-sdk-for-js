@@ -13,7 +13,7 @@ import {
 } from "@azure/test-utils-recorder";
 import { isNode } from "@azure/core-http";
 
-import { AzureKeyCredential, FormTrainingClient, FormRecognizerClient } from "../../src/index";
+import { AzureKeyCredential, FormTrainingClient, FormRecognizerClient } from "../../src";
 import { ClientSecretCredential } from "@azure/identity";
 
 if (isNode) {

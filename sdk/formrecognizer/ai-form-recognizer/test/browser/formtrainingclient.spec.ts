@@ -16,7 +16,7 @@ import {
   createRecordedRecognizerClient,
   testEnv,
   testPollingOptions
-} from "../util/recordedClients";
+} from "../utils/recordedClients";
 
 let unlabeledModelId: string | undefined;
 let modelIdToDelete: string | undefined;

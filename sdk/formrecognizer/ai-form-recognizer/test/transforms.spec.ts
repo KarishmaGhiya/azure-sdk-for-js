@@ -26,7 +26,7 @@ import {
   DataTable as DataTableModel,
   DocumentResult as DocumentResultModel
 } from "../src/generated/models";
-import { Point2D, FormField } from "../src/models";
+import { Point2D, FormField } from "../src";
 
 describe("Transforms", () => {
   function verifyBoundingBox(transformed: Point2D[], original: number[]): void {

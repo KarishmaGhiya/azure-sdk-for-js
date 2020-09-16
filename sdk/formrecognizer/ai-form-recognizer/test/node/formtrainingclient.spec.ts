@@ -13,7 +13,7 @@ import {
   createRecordedRecognizerClient,
   testEnv,
   testPollingOptions
-} from "../util/recordedClients";
+} from "../utils/recordedClients";
 import {
   FormRecognizerClient,
   TrainingDocumentInfo,

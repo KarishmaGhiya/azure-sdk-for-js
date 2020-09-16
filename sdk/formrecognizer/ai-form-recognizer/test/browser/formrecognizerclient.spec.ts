@@ -9,7 +9,7 @@ import {
   createRecordedRecognizerClient,
   testEnv,
   testPollingOptions
-} from "../util/recordedClients";
+} from "../utils/recordedClients";
 
 describe("FormRecognizerClient browser only", () => {
   let client: FormRecognizerClient;
