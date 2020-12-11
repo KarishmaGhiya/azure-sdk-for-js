@@ -7,22 +7,22 @@ import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
 import chaiExclude from "chai-exclude";
 import * as dotenv from "dotenv";
-import { parseServiceBusConnectionString } from "../src";
-import { CreateQueueOptions } from "../src/serializers/queueResourceSerializer";
-import { RuleProperties, CreateRuleOptions } from "../src/serializers/ruleResourceSerializer";
+import { parseServiceBusConnectionString } from "../../src";
+import { CreateQueueOptions } from "../../src";
+import { RuleProperties, CreateRuleOptions } from "../../src/serializers/ruleResourceSerializer";
 import {
   CreateSubscriptionOptions,
   SubscriptionProperties
-} from "../src/serializers/subscriptionResourceSerializer";
-import { CreateTopicOptions } from "../src/serializers/topicResourceSerializer";
+} from "../../src";
+import { CreateTopicOptions } from "../../src";
 import {
   ServiceBusAdministrationClient,
   WithResponse
-} from "../src/serviceBusAtomManagementClient";
-import { EntityStatus, EntityAvailabilityStatus, isNode } from "../src/util/utils";
-import { EnvVarNames, getEnvVars } from "./utils/envVarUtils";
-import { recreateQueue, recreateSubscription, recreateTopic } from "./utils/managementUtils";
-import { EntityNames } from "./utils/testUtils";
+} from "../../src/serviceBusAtomManagementClient";
+import { EntityStatus, EntityAvailabilityStatus, isNode } from "../../src/util/utils";
+import { EnvVarNames, getEnvVars } from "../public/utils/envVarUtils";
+import { recreateQueue, recreateSubscription, recreateTopic } from "../public/utils/managementUtils";
+import { EntityNames } from "../public/utils/testUtils";
 
 chai.use(chaiAsPromised);
 chai.use(chaiExclude);

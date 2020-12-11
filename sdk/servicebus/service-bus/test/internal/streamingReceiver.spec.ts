@@ -3,12 +3,12 @@
 
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import { ServiceBusReceivedMessage, delay, ProcessErrorArgs } from "../src";
-import { getAlreadyReceivingErrorMsg, MessageAlreadySettled } from "../src/util/errors";
-import { TestMessage, checkWithTimeout, TestClientType } from "./utils/testUtils";
-import { DispositionType, ServiceBusMessageImpl } from "../src/serviceBusMessage";
-import { ServiceBusReceiver } from "../src/receivers/receiver";
-import { ServiceBusSender } from "../src/sender";
+import { ServiceBusReceivedMessage, delay, ProcessErrorArgs } from "../../src";
+import { getAlreadyReceivingErrorMsg, MessageAlreadySettled } from "../../src/util/errors";
+import { TestMessage, checkWithTimeout, TestClientType } from "../public/utils/testUtils";
+import { DispositionType, ServiceBusMessageImpl } from "../../src/serviceBusMessage";
+import { ServiceBusReceiver } from "../../src";
+import { ServiceBusSender } from "../../src";
 import {
   EntityName,
   ServiceBusClientForTests,
@@ -16,10 +16,10 @@ import {
   drainReceiveAndDeleteReceiver,
   testPeekMsgsLength,
   getRandomTestClientTypeWithNoSessions
-} from "./utils/testutils2";
-import { getDeliveryProperty } from "./utils/misc";
-import { isNode } from "../src/util/utils";
-import { verifyMessageCount } from "./utils/managementUtils";
+} from "../public/utils/testutils2";
+import { getDeliveryProperty } from "../public/utils/misc";
+import { isNode } from "../../src/util/utils";
+import { verifyMessageCount } from "../public/utils/managementUtils";
 import sinon from "sinon";
 
 const should = chai.should();
