@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 import { PageSettings } from "@azure/core-paging";
+import {isNode} from "@azure/core-http";
 import { DefaultAzureCredential } from "@azure/identity";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
@@ -9,7 +10,7 @@ import chaiExclude from "chai-exclude";
 import * as dotenv from "dotenv";
 import { parseServiceBusConnectionString } from "../../src";
 import { CreateQueueOptions } from "../../src";
-import { RuleProperties, CreateRuleOptions } from "../../src/serializers/ruleResourceSerializer";
+import { RuleProperties } from "../../src";
 import {
   CreateSubscriptionOptions,
   SubscriptionProperties
@@ -18,8 +19,8 @@ import { CreateTopicOptions } from "../../src";
 import {
   ServiceBusAdministrationClient,
   WithResponse
-} from "../../src/serviceBusAtomManagementClient";
-import { EntityStatus, EntityAvailabilityStatus, isNode } from "../../src/util/utils";
+} from "../../src";
+import { EntityStatus, EntityAvailabilityStatus } from "../../src";
 import { EnvVarNames, getEnvVars } from "../public/utils/envVarUtils";
 import { recreateQueue, recreateSubscription, recreateTopic } from "../public/utils/managementUtils";
 import { EntityNames } from "../public/utils/testUtils";
@@ -1714,7 +1715,7 @@ describe(`createSubscription() using different variations to the input parameter
 // Rule tests
 const createRuleTests: {
   testCaseTitle: string;
-  input: Omit<CreateRuleOptions, "name"> | undefined;
+  input:  Omit<Required<CreateSubscriptionOptions>['defaultRuleOptions'], "name"> | undefined;
   output: RuleProperties;
 }[] = [
   {
@@ -2429,7 +2430,7 @@ async function createEntity(
   queueOptions?: Omit<CreateQueueOptions, "name">,
   topicOptions?: Omit<CreateTopicOptions, "name">,
   subscriptionOptions?: Omit<CreateSubscriptionOptions, "topicName" | "subscriptionName">,
-  ruleOptions?: Omit<CreateRuleOptions, "name">
+  ruleOptions?: Omit<Required<CreateSubscriptionOptions>['defaultRuleOptions'], "name">
 ): Promise<any> {
   if (!overrideOptions) {
     if (queueOptions == undefined) {
