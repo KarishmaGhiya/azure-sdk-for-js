@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 
 import { PageSettings } from "@azure/core-paging";
-import {isNode} from "@azure/core-http";
+import { isNode } from "@azure/core-http";
 import { DefaultAzureCredential } from "@azure/identity";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
@@ -11,18 +11,16 @@ import * as dotenv from "dotenv";
 import { parseServiceBusConnectionString } from "../../src";
 import { CreateQueueOptions } from "../../src";
 import { RuleProperties } from "../../src";
-import {
-  CreateSubscriptionOptions,
-  SubscriptionProperties
-} from "../../src";
+import { CreateSubscriptionOptions, SubscriptionProperties } from "../../src";
 import { CreateTopicOptions } from "../../src";
-import {
-  ServiceBusAdministrationClient,
-  WithResponse
-} from "../../src";
+import { ServiceBusAdministrationClient, WithResponse } from "../../src";
 import { EntityStatus, EntityAvailabilityStatus } from "../../src";
 import { EnvVarNames, getEnvVars } from "../public/utils/envVarUtils";
-import { recreateQueue, recreateSubscription, recreateTopic } from "../public/utils/managementUtils";
+import {
+  recreateQueue,
+  recreateSubscription,
+  recreateTopic
+} from "../public/utils/managementUtils";
 import { EntityNames } from "../public/utils/testUtils";
 
 chai.use(chaiAsPromised);
@@ -1715,7 +1713,7 @@ describe(`createSubscription() using different variations to the input parameter
 // Rule tests
 const createRuleTests: {
   testCaseTitle: string;
-  input:  Omit<Required<CreateSubscriptionOptions>['defaultRuleOptions'], "name"> | undefined;
+  input: Omit<Required<CreateSubscriptionOptions>["defaultRuleOptions"], "name"> | undefined;
   output: RuleProperties;
 }[] = [
   {
@@ -2430,7 +2428,7 @@ async function createEntity(
   queueOptions?: Omit<CreateQueueOptions, "name">,
   topicOptions?: Omit<CreateTopicOptions, "name">,
   subscriptionOptions?: Omit<CreateSubscriptionOptions, "topicName" | "subscriptionName">,
-  ruleOptions?: Omit<Required<CreateSubscriptionOptions>['defaultRuleOptions'], "name">
+  ruleOptions?: Omit<Required<CreateSubscriptionOptions>["defaultRuleOptions"], "name">
 ): Promise<any> {
   if (!overrideOptions) {
     if (queueOptions == undefined) {
