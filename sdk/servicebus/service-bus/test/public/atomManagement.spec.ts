@@ -15,13 +15,13 @@ import { CreateSubscriptionOptions, SubscriptionProperties } from "../../src";
 import { CreateTopicOptions } from "../../src";
 import { ServiceBusAdministrationClient, WithResponse } from "../../src";
 import { EntityStatus, EntityAvailabilityStatus } from "../../src";
-import { EnvVarNames, getEnvVars } from "../public/utils/envVarUtils";
+import { EnvVarNames, getEnvVars } from "./utils/envVarUtils";
 import {
   recreateQueue,
   recreateSubscription,
   recreateTopic
-} from "../public/utils/managementUtils";
-import { EntityNames } from "../public/utils/testUtils";
+} from "./utils/managementUtils";
+import { EntityNames } from "./utils/testUtils";
 
 chai.use(chaiAsPromised);
 chai.use(chaiExclude);
