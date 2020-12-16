@@ -3,44 +3,18 @@
   "preferredVersions": {},
   "implicitlyPreferredVersions": false,
   "allowedAlternativeVersions": {
-    "@azure/storage-blob": [
-      "^12.3.0"
-    ],
-    "@azure/ms-rest-js": [
-      "^2.0.0"
-    ],
-    "@azure/event-hubs": [
-      "^2.1.4"
-    ],
-    "@types/node": [
-      "^10.0.0"
-    ],
-    "@azure/service-bus": [
-      "7.0.1"
-    ],
-    "@azure/abort-controller": [
-      "1.0.1"
-    ],
-    "@azure/core-amqp": [
-      "2.0.0"
-    ],
-    "@azure/core-asynciterator-polyfill": [
-      "1.0.0"
-    ],
-    "@azure/core-http": [
-      "1.2.1"
-    ],
-    "@azure/core-paging": [
-      "1.1.3"
-    ],
-    "@azure/core-auth": [
-      "1.1.3"
-    ],
-    "@azure/logger": [
-      "1.0.0"
-    ],
-    "@azure/identity": [
-      "1.2.0"
-    ]
+    "@azure/storage-blob": ["^12.3.0"],
+    "@azure/ms-rest-js": ["^2.0.0"],
+    "@azure/event-hubs": ["^2.1.4"],
+    "@types/node": ["^10.0.0"],
+    "@azure/service-bus": ["7.0.1"],
+    "@azure/abort-controller": ["1.0.1"],
+    "@azure/core-amqp": ["2.0.0"],
+    "@azure/core-asynciterator-polyfill": ["1.0.0"],
+    "@azure/core-http": ["1.2.1"],
+    "@azure/core-paging": ["1.1.3"],
+    "@azure/core-auth": ["1.1.3"],
+    "@azure/logger": ["1.0.0"],
+    "@azure/identity": ["1.2.0"]
   }
 }

@@ -6,7 +6,12 @@ import Long from "long";
 const should = chai.should();
 import chaiAsPromised from "chai-as-promised";
 chai.use(chaiAsPromised);
-import { ServiceBusReceivedMessage, delay, ProcessErrorArgs, isServiceBusError } from "@azure/service-bus";
+import {
+  ServiceBusReceivedMessage,
+  delay,
+  ProcessErrorArgs,
+  isServiceBusError
+} from "@azure/service-bus";
 
 import { TestClientType, TestMessage, checkWithTimeout } from "../public/utils/testUtils";
 import { ServiceBusSender } from "@azure/service-bus";
