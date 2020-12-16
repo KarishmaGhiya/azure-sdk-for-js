@@ -8,8 +8,8 @@ import {
   testPeekMsgsLength,
   getRandomTestClientTypeWithSessions
 } from "../public/utils/testutils2";
-import { ServiceBusSender } from "../../src";
-import { ServiceBusMessage, ServiceBusSessionReceiver } from "../../src";
+import { ServiceBusSender } from "@azure/service-bus";
+import { ServiceBusMessage, ServiceBusSessionReceiver } from "@azure/service-bus";
 import { TestMessage } from "../public/utils/testUtils";
 const should = chai.should();
 

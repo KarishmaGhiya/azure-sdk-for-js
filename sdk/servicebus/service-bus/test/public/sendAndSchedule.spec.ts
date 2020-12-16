@@ -6,9 +6,9 @@ import Long from "long";
 const should = chai.should();
 import chaiAsPromised from "chai-as-promised";
 chai.use(chaiAsPromised);
-import { ServiceBusMessage, delay } from "../../src";
+import { ServiceBusMessage, delay } from "@azure/service-bus";
 import { TestClientType, TestMessage } from "./utils/testUtils";
-import { ServiceBusReceiver } from "../../src";
+import { ServiceBusReceiver } from "@azure/service-bus";
 import {
   ServiceBusClientForTests,
   createServiceBusClientForTests,
@@ -18,7 +18,7 @@ import {
   EntityName,
   getRandomTestClientType
 } from "./utils/testutils2";
-import { ServiceBusSender } from "../../src";
+import { ServiceBusSender } from "@azure/service-bus";
 import { AbortController } from "@azure/abort-controller";
 import { SpanGraph, TestSpan } from "@azure/core-tracing";
 import { setTracerForTest } from "./utils/misc";

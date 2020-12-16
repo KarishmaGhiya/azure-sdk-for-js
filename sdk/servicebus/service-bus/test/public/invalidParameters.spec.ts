@@ -12,8 +12,8 @@ import {
   ServiceBusClientForTests,
   createServiceBusClientForTests
 } from "../public/utils/testutils2";
-import { ServiceBusSender } from "../../src";
-import { ServiceBusClient, ServiceBusSessionReceiver } from "../../src";
+import { ServiceBusSender } from "@azure/service-bus";
+import { ServiceBusClient, ServiceBusSessionReceiver } from "@azure/service-bus";
 
 describe("invalid parameters", () => {
   let serviceBusClient: ServiceBusClientForTests;

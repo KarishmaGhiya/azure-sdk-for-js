@@ -5,7 +5,7 @@ import chai from "chai";
 const should = chai.should();
 import chaiAsPromised from "chai-as-promised";
 chai.use(chaiAsPromised);
-import { ServiceBusMessage } from "../../src";
+import { ServiceBusMessage } from "@azure/service-bus";
 import { TestClientType, TestMessage } from "../public/utils/testUtils";
 import {
   createServiceBusClientForTests,
@@ -14,9 +14,9 @@ import {
   getRandomTestClientTypeWithSessions,
   getRandomTestClientTypeWithNoSessions
 } from "../public/utils/testutils2";
-import { ServiceBusReceiver } from "../../src";
-import { ServiceBusSender } from "../../src";
-import { ServiceBusReceivedMessage } from "../../src";
+import { ServiceBusReceiver } from "@azure/service-bus";
+import { ServiceBusSender } from "@azure/service-bus";
+import { ServiceBusReceivedMessage } from "@azure/service-bus";
 
 describe("Deferred Messages", () => {
   let serviceBusClient: ReturnType<typeof createServiceBusClientForTests>;

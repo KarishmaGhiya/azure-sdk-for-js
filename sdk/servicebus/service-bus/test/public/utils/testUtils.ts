@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 
 import chai from "chai";
-import { ServiceBusReceivedMessage, ServiceBusMessage, delay } from "../../../src";
+import { ServiceBusReceivedMessage, ServiceBusMessage, delay } from "@azure/service-bus";
 import * as dotenv from "dotenv";
 dotenv.config();
 

@@ -8,7 +8,7 @@ import {
   ServiceBusReceiver,
   ServiceBusSessionReceiver,
   ServiceBusClientOptions
-} from "../../../src";
+} from "@azure/service-bus";
 
 import { TestClientType, TestMessage } from "./testUtils";
 import { EnvVarNames, getEnvVars } from "./envVarUtils";
@@ -20,8 +20,8 @@ import {
   verifyMessageCount
 } from "./managementUtils";
 import chai from "chai";
-import { ServiceBusReceivedMessage, ServiceBusMessage } from "../../../src";
-import { ServiceBusReceiverOptions, ServiceBusSessionReceiverOptions } from "../../../src";
+import { ServiceBusReceivedMessage, ServiceBusMessage } from "@azure/service-bus";
+import { ServiceBusReceiverOptions, ServiceBusSessionReceiverOptions } from "@azure/service-bus";
 
 dotenv.config();
 const env = getEnvVars();

@@ -3,7 +3,7 @@
 
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import { ServiceBusSender, ServiceBusReceiver } from "../../src";
+import { ServiceBusSender, ServiceBusReceiver } from "@azure/service-bus";
 import { TestClientType, TestMessage } from "../public/utils/testUtils";
 import { ServiceBusClientForTests, createServiceBusClientForTests } from "../public/utils/testutils2";
 chai.should();
