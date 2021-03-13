@@ -681,6 +681,11 @@
       "packageName": "@azure/iot-device-update",
       "projectFolder": "sdk/deviceupdate/iot-device-update",
       "versionPolicyName": "client"
+    },
+    {
+      "packageName": "@azure-tests/perf-ai-metrics-advisor",
+      "projectFolder": "sdk/metricsadvisor/perf-tests/ai-metrics-advisor",
+      "versionPolicyName": "test"
     }
   ]
 }

@@ -45,6 +45,7 @@ dependencies:
   '@rush-temp/mixedreality-authentication': file:projects/mixedreality-authentication.tgz
   '@rush-temp/mock-hub': file:projects/mock-hub.tgz
   '@rush-temp/monitor-opentelemetry-exporter': file:projects/monitor-opentelemetry-exporter.tgz
+  '@rush-temp/perf-ai-metrics-advisor': file:projects/perf-ai-metrics-advisor.tgz
   '@rush-temp/perf-ai-text-analytics': file:projects/perf-ai-text-analytics.tgz
   '@rush-temp/perf-eventgrid': file:projects/perf-eventgrid.tgz
   '@rush-temp/perf-storage-blob': file:projects/perf-storage-blob.tgz
@@ -81,6 +82,21 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-lNUmDRVGpanCsiUN3NWxFTdwmdFI53xwhkTFfHDGTYk46ca7Ind3nanJc+U6Zj9Tv+9nTCWRBscWEW1DyKOpTw==
+  /@azure/ai-metrics-advisor/1.0.0-beta.3:
+    dependencies:
+      '@azure/core-auth': 1.2.0
+      '@azure/core-http': 1.2.3
+      '@azure/core-lro': 1.0.3
+      '@azure/core-paging': 1.1.3
+      '@azure/core-tracing': 1.0.0-preview.9
+      '@azure/logger': 1.0.2
+      '@opentelemetry/api': 0.10.2
+      tslib: 2.1.0
+    dev: false
+    engines:
+      node: '>=8.0.0'
+    resolution:
+      integrity: sha512-7C1wodDLnLrdS7rmA/UoItoTAtpZdhkEoaxC7+j5l+LlrcWAe7K2JO1y5psVr5Pe8Y6cUGK4KfpgsAQAcSUDEw==
   /@azure/amqp-common/1.0.0-preview.9:
     dependencies:
       '@azure/ms-rest-nodeauth': 0.9.3_debug@3.2.7
@@ -8056,7 +8072,7 @@ packages:
     dev: false
     name: '@rush-temp/communication-administration'
     resolution:
-      integrity: sha512-whG+7mmbnOf6EaKIV++fJN9KVUD3ILO3cUHOLqAQKDlFtmj69QDy6qsbHyTyIOGsKSHHB8KyPPZItGgULngPpw==
+      integrity: sha512-DDT0w71HvXCS7Ww3gM2HO5GXtm8CtitIpHAtGU00lKdFohfzINn7onva3zBKyvLfVMTvv+1TsRrXti5UTu3biA==
       tarball: file:projects/communication-administration.tgz
     version: 0.0.0
   file:projects/communication-chat.tgz:
@@ -8113,7 +8129,7 @@ packages:
     dev: false
     name: '@rush-temp/communication-chat'
     resolution:
-      integrity: sha512-GeSjm0QX1D7rgFhTlH7X8STkmD5h5fP3S6OEOyPY/pRbVHSbf10Qe1yRYrhroA1Ziyh2MCERCkG/0uuah4wg8w==
+      integrity: sha512-P3psB6ukRXVXT/9OHJ+e1euw1S4HOuFBbvPhqGIMlBZuiBXyEqicw6PaG4oVKgjdGJtaOTyvY3E6OXW0hm+9/A==
       tarball: file:projects/communication-chat.tgz
     version: 0.0.0
   file:projects/communication-common.tgz:
@@ -8223,7 +8239,7 @@ packages:
     dev: false
     name: '@rush-temp/communication-identity'
     resolution:
-      integrity: sha512-Nvy14vvoy4ekaOHptUflWXpEeGuYVNZr6NWBe2Xue1qc4gf9ovl/t41QqlJcpSvIUE8UzC3eH1arEytc8oWaMA==
+      integrity: sha512-y1ywIYptiMuH4NREzzPxXJQg6Gt+zSwp3WJDUGEu99tQcpyToc8oz+4l1FBgq0Dlnxzg0RINJd90sc/SUGisUw==
       tarball: file:projects/communication-identity.tgz
     version: 0.0.0
   file:projects/communication-phone-numbers.tgz:
@@ -8279,7 +8295,7 @@ packages:
     dev: false
     name: '@rush-temp/communication-phone-numbers'
     resolution:
-      integrity: sha512-4hBuz3yoYH2R0qzZGW+TdpIAvEkGL6pWaHdaNI3PA2ikBCKYuHsCZarHgy8Vx//tsLEGb9aJcRgeX68U98BKxQ==
+      integrity: sha512-KNLkg6N1OQAvBSsdOc/XTNn5DV8mz2wWvq2X28FhvYPEbIl1R2L5mw6uvYBpVzrC+/QHo5l2ET+MlEudm+c+PQ==
       tarball: file:projects/communication-phone-numbers.tgz
     version: 0.0.0
   file:projects/communication-sms.tgz:
@@ -8333,7 +8349,7 @@ packages:
     dev: false
     name: '@rush-temp/communication-sms'
     resolution:
-      integrity: sha512-OG8/pwUCKSVDjLzSgPNGBtZdRvdDdMiq2BJ1WSwjCZSAwkhsIAwo2vgh6ZwwAntxJ6QnCTtO6nZ4Vw1fdjDtRA==
+      integrity: sha512-ctnXT8NoEAG2J/IqdPc0qYMmRqtBP6Ceg0owV0b4gVT/AhWURQGDW8nPAXzmeqQWqr5QxfJt4CMnyZchw5gB2w==
       tarball: file:projects/communication-sms.tgz
     version: 0.0.0
   file:projects/container-registry.tgz:
@@ -9835,6 +9851,20 @@ packages:
       integrity: sha512-Wfak3T6DRQr5CH2DFIOOpsHf1jWps/pkwoLUC185vsw5dO5F1BSnYBRfhBzAWWNr1ot1R60Puy+whBcK0lq8Rw==
       tarball: file:projects/monitor-opentelemetry-exporter.tgz
     version: 0.0.0
+  file:projects/perf-ai-metrics-advisor.tgz:
+    dependencies:
+      '@azure/ai-metrics-advisor': 1.0.0-beta.3
+      '@types/node': 8.10.66
+      dotenv: 8.2.0
+      ts-node: 8.10.2_typescript@4.1.2
+      tslib: 2.1.0
+      typescript: 4.1.2
+    dev: false
+    name: '@rush-temp/perf-ai-metrics-advisor'
+    resolution:
+      integrity: sha512-eNwpVRILK4FW/Cn+ph5DFeQOfHqBG7prvLiVhxVIfnQQf/qgmJyZyXhJ1pIb8HZbZG3BJzz/GuvwmCH5TJfL1g==
+      tarball: file:projects/perf-ai-metrics-advisor.tgz
+    version: 0.0.0
   file:projects/perf-ai-text-analytics.tgz:
     dependencies:
       '@azure/identity': 1.2.4
@@ -10865,6 +10895,7 @@ specifiers:
   '@rush-temp/mixedreality-authentication': file:./projects/mixedreality-authentication.tgz
   '@rush-temp/mock-hub': file:./projects/mock-hub.tgz
   '@rush-temp/monitor-opentelemetry-exporter': file:./projects/monitor-opentelemetry-exporter.tgz
+  '@rush-temp/perf-ai-metrics-advisor': file:./projects/perf-ai-metrics-advisor.tgz
   '@rush-temp/perf-ai-text-analytics': file:./projects/perf-ai-text-analytics.tgz
   '@rush-temp/perf-eventgrid': file:./projects/perf-eventgrid.tgz
   '@rush-temp/perf-storage-blob': file:./projects/perf-storage-blob.tgz
