@@ -107,10 +107,6 @@ export interface QueryLogsBatchResult {
     tables?: LogsTable[];
     error?: ErrorInfo;
   }[];
-
-  // TODO: this is omitted from the Java models.
-  /** Error response for a batch request */
-  // error?: BatchResponseError;
 }
 
 /** Contains the columns and rows for one table in a query response. */

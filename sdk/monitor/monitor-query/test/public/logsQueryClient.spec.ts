@@ -432,6 +432,7 @@ describe("LogsQueryClient live tests", function() {
         },
         "count table"
       );
+      // TODO later check for result.results?.[1].statistics and result.results?.[1].visualization => after adding in the response
     });
 
     async function checkLogsHaveBeenIngested(args: {
