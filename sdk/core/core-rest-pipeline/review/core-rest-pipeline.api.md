@@ -284,9 +284,13 @@ export class RestError extends Error {
 // @public
 export interface RestErrorOptions {
     code?: string;
+    details?: Error;
+    // Warning: (ae-forgotten-export) The symbol "InnerError" needs to be exported by the entry point index.d.ts
+    innerError?: InnerError;
     request?: PipelineRequest;
     response?: PipelineResponse;
     statusCode?: number;
+    target?: string;
 }
 
 // @public

@@ -27,8 +27,30 @@ export interface RestErrorOptions {
    * The response received (if any.)
    */
   response?: PipelineResponse;
+  /**
+   * Indicates which property in the request is responsible for the error.
+   */
+  target?: string;
+  /**
+   * error details.
+   */
+  details?: Error;
+  /**
+   * Inner error details if they exist.
+   */
+  innerError?: InnerError;
 }
 
+export interface InnerError {
+  /**
+   * The code of the error itself (use statics on RestError if possible.)
+   */
+  code: string;
+  /**
+   * Inner error details if they exist.
+   */
+  innerError?: InnerError;
+}
 /**
  * A custom error type for failed pipeline requests.
  */
@@ -73,6 +95,7 @@ export class RestError extends Error {
     this.statusCode = options.statusCode;
     this.request = options.request;
     this.response = options.response;
+    this.details = options.details;
 
     Object.setPrototypeOf(this, RestError.prototype);
   }
