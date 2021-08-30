@@ -29,7 +29,7 @@ export {
 export { createDefaultHttpClient } from "./defaultHttpClient";
 export { createHttpHeaders } from "./httpHeaders";
 export { createPipelineRequest, PipelineRequestOptions } from "./pipelineRequest";
-export { RestError, RestErrorOptions } from "./restError";
+export { RestError, RestErrorOptions, InnerError } from "./restError";
 export {
   decompressResponsePolicy,
   decompressResponsePolicyName

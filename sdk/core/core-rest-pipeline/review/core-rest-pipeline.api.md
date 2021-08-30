@@ -130,6 +130,12 @@ export interface HttpHeaders extends Iterable<[string, string]> {
 // @public
 export type HttpMethods = "GET" | "PUT" | "POST" | "DELETE" | "PATCH" | "HEAD" | "OPTIONS" | "TRACE";
 
+// @public (undocumented)
+export interface InnerError {
+    code: string;
+    innerError?: InnerError;
+}
+
 // @public
 export interface InternalPipelineOptions extends PipelineOptions {
     loggingOptions?: LogPolicyOptions;
@@ -285,7 +291,6 @@ export class RestError extends Error {
 export interface RestErrorOptions {
     code?: string;
     details?: Error;
-    // Warning: (ae-forgotten-export) The symbol "InnerError" needs to be exported by the entry point index.d.ts
     innerError?: InnerError;
     request?: PipelineRequest;
     response?: PipelineResponse;
