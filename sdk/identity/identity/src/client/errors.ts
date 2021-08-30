@@ -73,7 +73,7 @@ export const CredentialUnavailableErrorName = "CredentialUnavailableError";
  * an error that should halt the chain, it's caught and the chain continues
  */
 export class CredentialUnavailableError extends Error {
-  constructor(message?: string) {
+  constructor(message?: string, public summary?: string) {
     super(message);
     this.name = CredentialUnavailableErrorName;
   }
