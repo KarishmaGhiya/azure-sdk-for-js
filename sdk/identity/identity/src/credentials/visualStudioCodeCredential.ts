@@ -213,11 +213,52 @@ export class VisualStudioCodeCredential implements TokenCredential {
     //   },
     //   /* ... */
     // ]
+    /**
+     * 1. Sort the credentials array based on the "accountname" property so that we have all the chunks in order
+     * 2. Accumulate - 
+     * Check the first element of the list and verify 
+         - find the element that matches exactly "accountname" and traverse sequentially from there
+          - Have a chunkIndex -> 0
+          - for each element that i am traversing verify that "accountname" = "cloudname" + "-" + "chunkIndex" && hasNextChunk -> false
+      * 3. Find element in the array that has "AzureCloud" as the account name,
+      * if it "HasNextChunk" = true, then the next element which has "AzureCloud-1", 
+      * - extract that contentName from the "password" field and remove "\r\n"
+      * 
+      */
     const credentials = await findCredentials();
-
+    credentials.sort((a, b) => {
+      let fa = a.account;
+      let fb = b.account;
+      if (fa < fb) return -1;
+      if (fa > fb) return 1;
+      return 0;
+    });
+    let credentialIndex = credentials.findIndex(({ account }) => account === this.cloudName); // TODO: what to do in case we can't find the index
+    let chunkIndex = 0;
+    let refreshToken = "";
+    if (credentialIndex !== -1) {
+      while (credentialIndex < credentials.length) {
+        let verifyAccount = this.cloudName;
+        if (chunkIndex) {
+          verifyAccount += `-${chunkIndex}`;
+        }
+        if (credentials[credentialIndex].account === verifyAccount) {
+          const password = extractPassword(credentials[credentialIndex].password);
+          refreshToken += password.content;
+          if (password.hasNextChunk) {
+            credentialIndex++;
+            chunkIndex++;
+          } else {
+            break;
+          }
+        } else {
+          credentialIndex++;
+        }
+      }
+    }
     // If we can't find the credential based on the name, we'll pick the first one available.
-    const { password: refreshToken } =
-      credentials.find(({ account }) => account === this.cloudName) ?? credentials[0] ?? {};
+    // const { password: refreshToken } =
+    //   credentials.find(({ account }) => account === this.cloudName) ?? credentials[0] ?? {};
 
     if (refreshToken) {
       const tokenResponse = await this.identityClient.refreshAccessToken(
@@ -246,4 +287,10 @@ export class VisualStudioCodeCredential implements TokenCredential {
       throw error;
     }
   }
+}
+
+function extractPassword(password: string) {
+  let passwordJson = JSON.parse(password);
+  passwordJson.content = passwordJson.split("\r\n").join("");
+  return passwordJson;
 }
