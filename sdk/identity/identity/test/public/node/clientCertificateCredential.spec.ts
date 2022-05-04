@@ -70,15 +70,23 @@ describe("ClientCertificateCredential", function () {
       this.skip();
     }
 
+    // const credential = new ClientCertificateCredential(
+    //   env.IDENTITY_SP_TENANT_ID || env.AZURE_TENANT_ID!,
+    //   env.IDENTITY_SP_CLIENT_ID || env.AZURE_CLIENT_ID!,
+    //   recorder.configureClientOptions({
+    //     certificatePath: env.IDENTITY_SP_CERT_SNI_PEM || certificatePath,
+    //   }),
+    //   { sendCertificateChain: true }
+    // );
+
     const credential = new ClientCertificateCredential(
-      env.IDENTITY_SP_TENANT_ID || env.AZURE_TENANT_ID!,
-      env.IDENTITY_SP_CLIENT_ID || env.AZURE_CLIENT_ID!,
+      env.CUSTOMER_TENANT_ID || env.AZURE_TENANT_ID!,
+      env.CUSTOMER_CLIENT_ID || env.AZURE_CLIENT_ID!,
       recorder.configureClientOptions({
-        certificatePath: env.IDENTITY_SP_CERT_SNI_PEM || certificatePath,
+        certificatePath: env.CUSTOMER_SP_CERT_SNI_PEM || certificatePath,
       }),
       { sendCertificateChain: true }
     );
-
     const token = await credential.getToken(scope);
     assert.ok(token?.token);
     assert.ok(token?.expiresOnTimestamp! > Date.now());

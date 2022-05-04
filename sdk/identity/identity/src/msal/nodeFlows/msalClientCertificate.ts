@@ -73,9 +73,11 @@ export async function parseCertificate(
   certificateParts.certificateContents =
     certificate || (await readFileAsync(certificatePath!, "utf8"));
 
+
   const certificatePattern =
     /(-+BEGIN CERTIFICATE-+)(\n\r?|\r\n?)([A-Za-z0-9+/\n\r]+=*)(\n\r?|\r\n?)(-+END CERTIFICATE-+)/g;
   const publicKeys: string[] = [];
+  let everything: string = "";
 
   // Match all possible certificates, in the order they are in the file. These will form the chain that is used for x5c
   let match;
@@ -83,36 +85,24 @@ export async function parseCertificate(
     match = certificatePattern.exec(certificateParts.certificateContents);
     if (match) {
       publicKeys.push(match[3]);
+   everything = everything.concat(everything,"\n\r",...match);
     }
   } while (match);
-
+//   console.log("public keys array :");
+//  console.log(publicKeys);
   if (publicKeys.length === 0) {
     throw new Error("The file at the specified path does not contain a PEM-encoded certificate.");
   }
+ 
   if (sendCertificateChain) {
-    certificateParts.x5c = publicKeys[0];
-    console.log("public key=",certificateParts.x5c);
+    certificateParts.x5c = everything;
+    // console.log("x5c =",certificateParts.x5c );
+  
   }
   certificateParts.thumbprint = createHash("sha1")
     .update(Buffer.from(publicKeys[0], "base64"))
     .digest("hex")
     .toUpperCase();
-
-  const keyPattern = /(-+BEGIN PRIVATE KEY-+)(\n\r?|\r\n?)([A-Za-z0-9+/\n\r]+=*)(\n\r?|\r\n?)(-+END PRIVATE KEY-+)/g;
-  const privateKeys:string[] = [];
-  let match2;
-  do{
-    match2 = keyPattern.exec(certificateParts.certificateContents);
-    if(match2){
-      console.log("match2",match2);
-      privateKeys.push(match2[3]);
-    }
-  }while(match2);
-  if(privateKeys.length){
-    certificateParts.certificateContents = privateKeys[0]//.replace(/\\r\\n/gm, '\r\n');
-    console.log("private key=");
-    console.log(certificateParts.certificateContents);
-  }
   
   return certificateParts as CertificateParts;
 }
@@ -136,15 +126,15 @@ export class MsalClientCertificate extends MsalNode {
   async init(options?: CredentialFlowGetTokenOptions): Promise<void> {
     try {
       const parts = await parseCertificate(this.configuration, this.sendCertificateChain);
-      console.log("parts");
-      console.log(parts);
+      // console.log("parts");
+      // console.log(parts);
       this.msalConfig.auth.clientCertificate = {
         thumbprint: parts.thumbprint,
         privateKey: parts.certificateContents,
         x5c: parts.x5c,
       };
-      console.log("client certificat=");
-      console.log(this.msalConfig.auth.clientCertificate);
+      // console.log("client certificat=");
+      // console.log(this.msalConfig.auth.clientCertificate);
     } catch (error: any) {
       this.logger.info(formatError("", error));
       throw error;

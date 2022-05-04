@@ -187,6 +187,8 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
       this.msalConfig.auth.clientAssertion ||
       this.msalConfig.auth.clientCertificate
     ) {
+      console.log("this msal config");
+      console.log(this.msalConfig);
       this.confidentialApp = new msalNode.ConfidentialClientApplication(this.msalConfig);
     } else {
       if (this.requiresConfidential) {
