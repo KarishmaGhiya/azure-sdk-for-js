@@ -16,6 +16,8 @@ import { arcMsi } from "./arcMsi";
 import { tokenExchangeMsi } from "./tokenExchangeMsi";
 import { fabricMsi } from "./fabricMsi";
 import { appServiceMsi2019 } from "./appServiceMsi2019";
+import { MsalFlow } from "../../msal/flows";
+import { MsalClientManagedIdentity } from "../../msal/nodeFlows/managedIdentity/msalManagedIdentityClass";
 
 const logger = credentialLogger("ManagedIdentityCredential");
 
@@ -54,6 +56,7 @@ export interface ManagedIdentityCredentialResourceIdOptions extends TokenCredent
  * https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview
  */
 export class ManagedIdentityCredential implements TokenCredential {
+  private msalFlow: MsalFlow;
   private identityClient: IdentityClient;
   private clientId: string | undefined;
   private resourceId: string | undefined;
@@ -95,9 +98,26 @@ export class ManagedIdentityCredential implements TokenCredential {
     if (typeof clientIdOrOptions === "string") {
       this.clientId = clientIdOrOptions;
       _options = options;
+      this.msalFlow = new MsalClientManagedIdentity(this.clientId, {
+        ..._options,
+        retryOptions: {
+          maxRetries: 0,
+        }
+
+      })
     } else {
       this.clientId = (clientIdOrOptions as ManagedIdentityCredentialClientIdOptions)?.clientId;
       _options = clientIdOrOptions;
+      this.msalFlow = new MsalClientManagedIdentity({
+         clientId: 
+         {
+           ...options,
+           retryOptions: {
+            maxRetries: 0,
+          }
+         }
+
+      })
     }
     this.resourceId = (_options as ManagedIdentityCredentialResourceIdOptions)?.resourceId;
     // For JavaScript users.
@@ -113,6 +133,14 @@ export class ManagedIdentityCredential implements TokenCredential {
         maxRetries: 0,
       },
     });
+    this.msalFlow = new MsalClientManagedIdentity({
+      clientId: this.clientId,
+      resourceId: this.resourceId,
+
+      {
+        ..._options
+      }
+    })
   }
 
   private cachedMSI: MSI | undefined;
