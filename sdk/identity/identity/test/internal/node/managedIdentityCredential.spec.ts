@@ -24,12 +24,24 @@ import { AzureAuthorityHosts, DefaultAuthorityHost, DefaultTenantId } from "../.
 import { AzureLogger, setLogLevel } from "@azure/logger";
 import { logger } from "../../../src/credentials/managedIdentityCredential/cloudShellMsi";
 import { Context } from "mocha";
-
+import { msalNodeTestSetup } from "../../msalTestUtils";
+import { ConfidentialClientApplication } from "@azure/msal-node";
+import { MsalNode } from "../../../src/msal/nodeFlows/msalNodeCommon";
+let testContext: IdentityTestContextInterface;
 describe.only("ManagedIdentityCredential", function () {
-  let testContext: IdentityTestContextInterface;
-  let envCopy: string = "";
 
-  beforeEach(async function () {
+  let envCopy: string = "";
+  let getTokenSilentSpy: Sinon.SinonSpy;
+  let doGetTokenSpy: Sinon.SinonSpy;
+  beforeEach(async function (this: Context) {
+    const setup = await msalNodeTestSetup(this.currentTest);
+     getTokenSilentSpy = setup.sandbox.spy(MsalNode.prototype, "getTokenSilent");
+
+    // MsalClientSecret calls to this method underneath.
+    doGetTokenSpy = setup.sandbox.spy(
+      ConfidentialClientApplication.prototype,
+      "acquireTokenByClientCredential"
+    );
     envCopy = JSON.stringify(process.env);
     delete process.env.AZURE_CLIENT_ID;
     delete process.env.AZURE_TENANT_ID;
@@ -56,9 +68,18 @@ describe.only("ManagedIdentityCredential", function () {
   });
 
   it.only("sends an authorization request with a modified resource name", async function () {
+   
+
+   
+    let credential = new ManagedIdentityCredential("client");
+    let accessToken = await credential.getToken(["https://service/.default"]);
+    console.log(accessToken);
+    console.log(doGetTokenSpy.callCount);
+    console.log(getTokenSilentSpy.callCount);
+
     const authDetails = await testContext.sendCredentialRequests({
       scopes: ["https://service/.default"],
-      credential: new ManagedIdentityCredential("client",{authorityHost:"https://login.microsoftonline.com"}),
+      credential: new ManagedIdentityCredential("client"),
       insecureResponses: [
         createResponse(200), // IMDS Endpoint ping
         createResponse(200, {
