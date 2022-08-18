@@ -4,11 +4,11 @@
 import { assert } from "chai";
 import { join } from "path";
 import { tmpdir } from "os";
-import { GetTokenOptions } from "@azure/core-auth";
+import { AccessToken, GetTokenOptions } from "@azure/core-auth";
 import { mkdtempSync, rmdirSync, unlinkSync, writeFileSync } from "fs";
 import { RestError } from "@azure/core-rest-pipeline";
 import { ManagedIdentityCredential } from "../../../src";
-import Sinon from "sinon";
+import * as sinon from "sinon";
 import {
   imdsApiVersion,
   imdsEndpointPath,
@@ -25,23 +25,16 @@ import { AzureLogger, setLogLevel } from "@azure/logger";
 import { logger } from "../../../src/credentials/managedIdentityCredential/cloudShellMsi";
 import { Context } from "mocha";
 import { msalNodeTestSetup } from "../../msalTestUtils";
-import { ConfidentialClientApplication } from "@azure/msal-node";
+import { AuthenticationResult, ConfidentialClientApplication } from "@azure/msal-node";
 import { MsalNode } from "../../../src/msal/nodeFlows/msalNodeCommon";
 let testContext: IdentityTestContextInterface;
 describe.only("ManagedIdentityCredential", function () {
-
   let envCopy: string = "";
-  let getTokenSilentSpy: Sinon.SinonSpy;
-  let doGetTokenSpy: Sinon.SinonSpy;
+  let getTokenSilentSpy: sinon.SinonSpy;
   beforeEach(async function (this: Context) {
     const setup = await msalNodeTestSetup(this.currentTest);
-     getTokenSilentSpy = setup.sandbox.spy(MsalNode.prototype, "getTokenSilent");
+    getTokenSilentSpy = setup.sandbox.spy(MsalNode.prototype, "getTokenSilent");
 
-    // MsalClientSecret calls to this method underneath.
-    doGetTokenSpy = setup.sandbox.spy(
-      ConfidentialClientApplication.prototype,
-      "acquireTokenByClientCredential"
-    );
     envCopy = JSON.stringify(process.env);
     delete process.env.AZURE_CLIENT_ID;
     delete process.env.AZURE_TENANT_ID;
@@ -68,18 +61,51 @@ describe.only("ManagedIdentityCredential", function () {
   });
 
   it.only("sends an authorization request with a modified resource name", async function () {
-   
-
-   
     let credential = new ManagedIdentityCredential("client");
-    let accessToken = await credential.getToken(["https://service/.default"]);
-    console.log(accessToken);
-    console.log(doGetTokenSpy.callCount);
+    const response: Promise<AccessToken> = Promise.resolve({
+      token: "token",
+      expiresOnTimestamp: 1660856121, //2022-08-18T20:55:21.852Z
+    });
+    sinon.stub(credential, "getToken").returns(response);
+    const res: AuthenticationResult = {
+      authority: "https://login.microsoftonline.com/common/",
+      uniqueId: "",
+      tenantId: "",
+      scopes: ["https://vault.azure.net/.default", "openid", "profile", "offline_access"],
+      account: null,
+      idToken: "",
+      idTokenClaims: {},
+      accessToken:
+        "access_token",
+      fromCache: false,
+      expiresOn: new Date("+054655-11-17T04:10:47.000Z"),
+      correlationId: "noCorrelationId",
+      extExpiresOn: new Date("+054655-11-17T04:10:47.000Z"),
+      familyId: "",
+      tokenType: "Bearer",
+      state: "",
+      cloudGraphHostName: "",
+      msGraphHost: "",
+      fromNativeBroker: false,
+    };
+     let stub = sinon.createStubInstance(ConfidentialClientApplication);
+     stub.acquireTokenByClientCredential.returns(Promise.resolve(res));
+    // sinon.createStubInstance(ConfidentialClientApplication, {
+    //   acquireTokenByClientCredential: sinon
+    //     .stub()
+    //     .returns(
+    //       Promise.resolve(res)
+    //     ),
+    // });
+    // //let accessToken = await credential.getToken(["https://service/.default"]);
+    // let isAvailableSpy = sinon.spy(imdsMsi, "isAvailable");
+    // console.log(isAvailableSpy.callCount);
+    // //console.log(accessToken);
     console.log(getTokenSilentSpy.callCount);
 
     const authDetails = await testContext.sendCredentialRequests({
       scopes: ["https://service/.default"],
-      credential: new ManagedIdentityCredential("client"),
+      credential: credential,
       insecureResponses: [
         createResponse(200), // IMDS Endpoint ping
         createResponse(200, {
@@ -88,13 +114,13 @@ describe.only("ManagedIdentityCredential", function () {
         }),
       ],
     });
-    console.log(`${JSON.stringify(authDetails)}`)
+    console.log(`authdetails = ${JSON.stringify(authDetails)}`);
 
     // The first request is the IMDS ping.
     // This ping request has to skip a header and the query parameters for it to work on POD identity.
-    const imdsPingRequest = authDetails.requests[0];
-    assert.ok(!imdsPingRequest.headers!.metadata);
-    assert.equal(imdsPingRequest.url, new URL(imdsEndpointPath, imdsHost).toString());
+    //const imdsPingRequest = authDetails.requests[0];
+   // assert.ok(!imdsPingRequest.headers!.metadata);
+    //assert.equal(imdsPingRequest.url, new URL(imdsEndpointPath, imdsHost).toString());
 
     // The second one tries to authenticate against IMDS once we know the endpoint is available.
     const authRequest = authDetails.requests[1];
@@ -706,8 +732,8 @@ describe.only("ManagedIdentityCredential", function () {
   it("authorization request fails with client id passed in an Cloud Shell environment", async function (this: Context) {
     // Trigger Cloud Shell behavior by setting environment variables
     process.env.MSI_ENDPOINT = "https://endpoint";
-    const msiGetTokenSpy = Sinon.spy(ManagedIdentityCredential.prototype, "getToken");
-    const loggerSpy = Sinon.spy(logger, "warning");
+    const msiGetTokenSpy = sinon.spy(ManagedIdentityCredential.prototype, "getToken");
+    const loggerSpy = sinon.spy(logger, "warning");
     setLogLevel("warning");
     const authDetails = await testContext.sendCredentialRequests({
       scopes: ["https://service/.default"],
@@ -1021,7 +1047,7 @@ describe.only("ManagedIdentityCredential", function () {
 
   it("calls to AppTokenProvider for MI token caching support", async () => {
     const credential: any = new ManagedIdentityCredential("client");
-    const confidentialSpy = Sinon.spy(credential.confidentialApp, "SetAppTokenProvider");
+    const confidentialSpy = sinon.spy(credential.confidentialApp, "SetAppTokenProvider");
 
     // Trigger App Service behavior by setting environment variables
     process.env.MSI_ENDPOINT = "https://endpoint";
