@@ -8,7 +8,7 @@ import { AccessToken, GetTokenOptions } from "@azure/core-auth";
 import { mkdtempSync, rmdirSync, unlinkSync, writeFileSync } from "fs";
 import { RestError } from "@azure/core-rest-pipeline";
 import { ManagedIdentityCredential } from "../../../src";
-import * as sinon from "sinon";
+import Sinon, * as sinon from "sinon";
 import {
   imdsApiVersion,
   imdsEndpointPath,
@@ -24,17 +24,13 @@ import { AzureAuthorityHosts, DefaultAuthorityHost, DefaultTenantId } from "../.
 import { AzureLogger, setLogLevel } from "@azure/logger";
 import { logger } from "../../../src/credentials/managedIdentityCredential/cloudShellMsi";
 import { Context } from "mocha";
-import { msalNodeTestSetup } from "../../msalTestUtils";
 import { AuthenticationResult, ConfidentialClientApplication } from "@azure/msal-node";
-import { MsalNode } from "../../../src/msal/nodeFlows/msalNodeCommon";
-let testContext: IdentityTestContextInterface;
-describe.only("ManagedIdentityCredential", function () {
-  let envCopy: string = "";
-  let getTokenSilentSpy: sinon.SinonSpy;
-  beforeEach(async function (this: Context) {
-    const setup = await msalNodeTestSetup(this.currentTest);
-    getTokenSilentSpy = setup.sandbox.spy(MsalNode.prototype, "getTokenSilent");
 
+describe.only("ManagedIdentityCredential", function () {
+  let testContext: IdentityTestContextInterface;
+  let envCopy: string = "";
+
+  beforeEach(async function () {
     envCopy = JSON.stringify(process.env);
     delete process.env.AZURE_CLIENT_ID;
     delete process.env.AZURE_TENANT_ID;
@@ -70,8 +66,8 @@ describe.only("ManagedIdentityCredential", function () {
     const res: AuthenticationResult = {
       authority: "https://login.microsoftonline.com/common/",
       uniqueId: "",
-      tenantId: "",
-      scopes: ["https://vault.azure.net/.default", "openid", "profile", "offline_access"],
+      tenantId: "adfs",
+      scopes: ["https://vault.azure.net/.default"],
       account: null,
       idToken: "",
       idTokenClaims: {},
@@ -89,6 +85,7 @@ describe.only("ManagedIdentityCredential", function () {
       fromNativeBroker: false,
     };
      let stub = sinon.createStubInstance(ConfidentialClientApplication);
+     
      stub.acquireTokenByClientCredential.returns(Promise.resolve(res));
     // sinon.createStubInstance(ConfidentialClientApplication, {
     //   acquireTokenByClientCredential: sinon
@@ -101,26 +98,27 @@ describe.only("ManagedIdentityCredential", function () {
     // let isAvailableSpy = sinon.spy(imdsMsi, "isAvailable");
     // console.log(isAvailableSpy.callCount);
     // //console.log(accessToken);
-    console.log(getTokenSilentSpy.callCount);
+    //console.log(getTokenSilentSpy.callCount);
 
     const authDetails = await testContext.sendCredentialRequests({
       scopes: ["https://service/.default"],
-      credential: credential,
+      getTokenOptions: {tenantId: "adfs"},
+      credential: new ManagedIdentityCredential("client",{authorityHost:"https://login.abc.com"}),
       insecureResponses: [
         createResponse(200), // IMDS Endpoint ping
         createResponse(200, {
           access_token: "token",
           expires_on: "06/20/2019 02:57:58 +00:00",
         }),
-      ],
+      ]
     });
-    console.log(`authdetails = ${JSON.stringify(authDetails)}`);
+    console.log(`${JSON.stringify(authDetails)}`)
 
     // The first request is the IMDS ping.
     // This ping request has to skip a header and the query parameters for it to work on POD identity.
-    //const imdsPingRequest = authDetails.requests[0];
-   // assert.ok(!imdsPingRequest.headers!.metadata);
-    //assert.equal(imdsPingRequest.url, new URL(imdsEndpointPath, imdsHost).toString());
+    const imdsPingRequest = authDetails.requests[0];
+    assert.ok(!imdsPingRequest.headers!.metadata);
+    assert.equal(imdsPingRequest.url, new URL(imdsEndpointPath, imdsHost).toString());
 
     // The second one tries to authenticate against IMDS once we know the endpoint is available.
     const authRequest = authDetails.requests[1];
@@ -732,8 +730,8 @@ describe.only("ManagedIdentityCredential", function () {
   it("authorization request fails with client id passed in an Cloud Shell environment", async function (this: Context) {
     // Trigger Cloud Shell behavior by setting environment variables
     process.env.MSI_ENDPOINT = "https://endpoint";
-    const msiGetTokenSpy = sinon.spy(ManagedIdentityCredential.prototype, "getToken");
-    const loggerSpy = sinon.spy(logger, "warning");
+    const msiGetTokenSpy = Sinon.spy(ManagedIdentityCredential.prototype, "getToken");
+    const loggerSpy = Sinon.spy(logger, "warning");
     setLogLevel("warning");
     const authDetails = await testContext.sendCredentialRequests({
       scopes: ["https://service/.default"],
@@ -1047,7 +1045,7 @@ describe.only("ManagedIdentityCredential", function () {
 
   it("calls to AppTokenProvider for MI token caching support", async () => {
     const credential: any = new ManagedIdentityCredential("client");
-    const confidentialSpy = sinon.spy(credential.confidentialApp, "SetAppTokenProvider");
+    const confidentialSpy = Sinon.spy(credential.confidentialApp, "SetAppTokenProvider");
 
     // Trigger App Service behavior by setting environment variables
     process.env.MSI_ENDPOINT = "https://endpoint";
