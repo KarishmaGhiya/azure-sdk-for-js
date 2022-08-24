@@ -126,6 +126,8 @@ export class ManagedIdentityCredential implements TokenCredential {
       auth: {
         clientId: this.clientId ?? DeveloperSignOnClientId,
         clientSecret: "dummy-secret",
+        // knownAuthorities: ["https://login.microsoftonline.com/common"],
+        authorityMetadata: "{\"tenant_discovery_endpoint\":\"https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration\",\"api-version\":\"1.1\",\"metadata\":[{\"preferred_network\":\"login.microsoftonline.com\",\"preferred_cache\":\"login.windows.net\",\"aliases\":[\"login.microsoftonline.com\",\"login.windows.net\",\"login.microsoft.com\",\"sts.windows.net\"]}]}"
       },
     });
   }

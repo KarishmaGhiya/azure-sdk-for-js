@@ -66,7 +66,7 @@ describe.only("ManagedIdentityCredential", function () {
     const res: AuthenticationResult = {
       authority: "https://login.microsoftonline.com/common/",
       uniqueId: "",
-      tenantId: "adfs",
+      tenantId: "",
       scopes: ["https://vault.azure.net/.default"],
       account: null,
       idToken: "",
@@ -102,8 +102,7 @@ describe.only("ManagedIdentityCredential", function () {
 
     const authDetails = await testContext.sendCredentialRequests({
       scopes: ["https://service/.default"],
-      getTokenOptions: {tenantId: "adfs"},
-      credential: new ManagedIdentityCredential("client",{authorityHost:"https://login.abc.com"}),
+      credential: new ManagedIdentityCredential("client"),
       insecureResponses: [
         createResponse(200), // IMDS Endpoint ping
         createResponse(200, {
