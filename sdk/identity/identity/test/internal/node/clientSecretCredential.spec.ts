@@ -27,7 +27,7 @@ describe("ClientSecretCredential (internal)", function () {
     recorder = setup.recorder;
 
     getTokenSilentSpy = setup.sandbox.spy(MsalNode.prototype, "getTokenSilent");
-
+      
     // MsalClientSecret calls to this method underneath.
     doGetTokenSpy = setup.sandbox.spy(
       ConfidentialClientApplication.prototype,

@@ -244,6 +244,8 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
    */
   async getActiveAccount(): Promise<AuthenticationRecord | undefined> {
     if (this.account) {
+      console.log("this.account")
+      console.dir(this.account);
       return this.account;
     }
     const cache = this.confidentialApp?.getTokenCache() ?? this.publicApp?.getTokenCache();
