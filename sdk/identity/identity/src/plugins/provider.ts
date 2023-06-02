@@ -21,6 +21,12 @@ export interface CachePluginControl {
   ): void;
 }
 
+export interface NativeBrokerPluginControl {
+  setNativeBroker(
+    nativeBrokerFactory: () => Promise<import("@azure/msal-common").INativeBrokerPlugin>
+  ): void;
+}
+
 /**
  * Plugin context entries for controlling VisualStudioCodeCredential.
  */
@@ -38,5 +44,6 @@ export interface VisualStudioCodeCredentialControl {
  */
 export interface AzurePluginContext {
   cachePluginControl: CachePluginControl;
+  nativeBrokerPluginControl: NativeBrokerPluginControl;
   vsCodeCredentialControl: VisualStudioCodeCredentialControl;
 }
