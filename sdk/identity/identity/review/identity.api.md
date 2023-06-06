@@ -284,6 +284,7 @@ export interface InteractiveBrowserCredentialInBrowserOptions extends Interactiv
 // @public
 export interface InteractiveBrowserCredentialNodeOptions extends InteractiveCredentialOptions, CredentialPersistenceOptions {
     clientId?: string;
+    enableMsaPassthrough?: boolean;
     loginHint?: string;
     redirectUri?: string | (() => string);
     tenantId?: string;

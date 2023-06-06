@@ -6,9 +6,9 @@
  * packages for WAM MSA support.
  */
 
-import { InteractiveBrowserCredential, useIdentityPlugin } from "@azure/identity";
-import { nativeBrokerPlugin } from "@azure/identity-brokered-auth";
-import dotenv from "dotenv";
+const { InteractiveBrowserCredential, useIdentityPlugin } = require("@azure/identity");
+const { nativeBrokerPlugin } = require("@azure/identity-brokered-auth");
+const dotenv = require("dotenv");
 
 // Load the plugin
 useIdentityPlugin(nativeBrokerPlugin);
@@ -33,7 +33,6 @@ async function main() {
   const token = await credential.getToken(scope);
 
   console.log(`Token: ${token.token}: ${token.expiresOnTimestamp}`);
-
 }
 
 main().catch((error) => {
