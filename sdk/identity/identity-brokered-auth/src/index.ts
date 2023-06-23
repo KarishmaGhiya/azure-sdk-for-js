@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
-import { AzurePluginContext } from "../../identity/src/plugins/provider";
+import { AzurePluginContext, NativeBrokerPluginOptions } from "../../identity/src/plugins/provider";
 import { IdentityPlugin } from "@azure/identity";
 import { NativeBrokerPlugin } from "@azure/msal-node-extensions";
 
@@ -25,8 +25,20 @@ import { NativeBrokerPlugin } from "@azure/msal-node-extensions";
  * });
  * ```
  */
-export const nativeBrokerPlugin: IdentityPlugin = (context) => {
-  const { nativeBrokerPluginControl } = context as AzurePluginContext;
 
-  nativeBrokerPluginControl.setNativeBroker(async () => new NativeBrokerPlugin());
-};
+export function createNativeBrokerPlugin(options: NativeBrokerPluginOptions): IdentityPlugin {
+  return async function nativeBrokerPlugin({ nativeBrokerPluginControl }: AzurePluginContext) {
+    nativeBrokerPluginControl.setNativeBroker(new NativeBrokerPlugin(), options)
+  } as IdentityPlugin;
+}
+
+// export const nativeBrokerPlugin: IdentityPlugin = (context) => {
+//   const { nativeBrokerPluginControl } = context as AzurePluginContext;
+  
+//   nativeBrokerPluginControl.setNativeBroker(async () => new NativeBrokerPlugin());
+//   nativeBrokerPluginControl.createNativeBrokerPlugin(async(options?: NativeBrokerPluginOptions) => {
+    
+//     return new NativeBrokerPlugin()
+//   }
+//   );
+// };

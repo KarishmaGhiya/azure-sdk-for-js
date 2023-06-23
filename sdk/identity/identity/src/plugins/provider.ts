@@ -21,10 +21,25 @@ export interface CachePluginControl {
   ): void;
 }
 
+export interface NativeBrokerPluginOptions {
+  // We don't think this is necessary in JS as the user has to explicitly opt in to the plugin.
+  // useBroker: boolean;
+  enableMSAPassthrough: boolean;
+  parentWindowHandle: Buffer;
+}
+
 export interface NativeBrokerPluginControl {
+  // useBroker: boolean;
+  // enableMSAPassthrough: boolean;
+  // parentWindowHandle: string;
+
   setNativeBroker(
-    nativeBrokerFactory: () => Promise<import("@azure/msal-common").INativeBrokerPlugin>
+    nativeBroker: import("@azure/msal-common").INativeBrokerPlugin,
+    options: NativeBrokerPluginOptions
   ): void;
+  // createNativeBrokerPlugin(
+  //   nativeBrokerFactory: () => Promise<import("@azure/msal-common").INativeBrokerPlugin>
+  // ): void;
 }
 
 /**

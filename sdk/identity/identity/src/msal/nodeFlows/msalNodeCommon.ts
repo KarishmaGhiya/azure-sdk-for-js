@@ -29,6 +29,7 @@ import { LogPolicyOptions } from "@azure/core-rest-pipeline";
 import { MultiTenantTokenCredentialOptions } from "../../credentials/multiTenantTokenCredentialOptions";
 import { RegionalAuthority } from "../../regionalAuthority";
 import { TokenCachePersistenceOptions } from "./tokenCachePersistenceOptions";
+import { NativeBrokerPluginControl, NativeBrokerPluginOptions } from "../../plugins/provider";
 
 /**
  * Union of the constructor parameters that all MSAL flow types for Node.
@@ -80,16 +81,26 @@ export const msalNodeFlowCacheControl = {
  * The current native broker provider, undefined by default.
  * @internal
  */
-let nativeBrokerProvider: (() => Promise<msalNode.INativeBrokerPlugin>) | undefined = undefined;
+export let nativeBrokerInfo: {
+  broker: msalNode.INativeBrokerPlugin;
+  options: NativeBrokerPluginOptions
+} | undefined = undefined;
+
+export function hasNativeBroker(): boolean {
+  return nativeBrokerInfo !== undefined;
+}
 
 /**
  * An object that allows setting the native broker provider.
  * @internal
  */
-export const msalNodeFlowNativeBrokerControl = {
-  setNativeBroker(): void {
-    nativeBrokerProvider = nativeBrokerProvider;
-  }
+export const msalNodeFlowNativeBrokerControl: NativeBrokerPluginControl = {
+  setNativeBroker(broker, options): void {
+    nativeBrokerInfo = {
+      broker,
+      options
+    }
+  },
 };
 
 /**
@@ -144,10 +155,6 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
     this.clientId = this.msalConfig.auth.clientId;
     if (options?.getAssertion) {
       this.getAssertion = options.getAssertion;
-    }
-
-    if (nativeBrokerProvider !== undefined) {
-      this.createNativeBrokerPlugin = () => nativeBrokerProvider!();
     }
 
     // If persistence has been configured
@@ -276,23 +283,23 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
       };
     }
 
-if (this.createNativeBrokerPlugin !== undefined) {
-  this.msalConfig.broker = {
-    nativeBrokerPlugin: await this.createNativeBrokerPlugin(),
-  };
-}
+    if (hasNativeBroker()) {
+      this.msalConfig.broker = {
+        nativeBrokerPlugin: nativeBrokerInfo!.broker
+      };
+    }
 
-if (options?.enableMsaPassthrough) {
+    if (options?.enableMsaPassthrough) {
 
-  // WTF is this?
-  /*
-  this.msalConfig.extraQueryParameters: {
-    "msal_request_type": "consumer_passthrough"
-  }
-  */
-}    
+      // WTF is this?
+      /*
+      this.msalConfig.extraQueryParameters: {
+        "msal_request_type": "consumer_passthrough"
+      }
+      */
+    }
 
-if (options?.enableCae) {
+    if (options?.enableCae) {
       this.caeApp.public = new msalNode.PublicClientApplication(this.msalConfig);
     } else {
       this.app.public = new msalNode.PublicClientApplication(this.msalConfig);
@@ -401,7 +408,7 @@ To work with multiple accounts for the same Client ID and Tenant ID, please prov
       claims: options?.claims,
     };
 
-    if (options?.enableMsaPassthrough) {
+    if (hasNativeBroker() && nativeBrokerInfo!.options.enableMSAPassthrough) {
       if (!silentRequest.tokenQueryParameters) {
         silentRequest.tokenQueryParameters = {};
       }

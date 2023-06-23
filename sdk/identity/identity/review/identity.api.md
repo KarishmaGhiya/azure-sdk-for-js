@@ -4,6 +4,8 @@
 
 ```ts
 
+/// <reference types="node" />
+
 import { AccessToken } from '@azure/core-auth';
 import { AzureLogger } from '@azure/logger';
 import { CommonClientOptions } from '@azure/core-client';
@@ -284,7 +286,6 @@ export interface InteractiveBrowserCredentialInBrowserOptions extends Interactiv
 // @public
 export interface InteractiveBrowserCredentialNodeOptions extends InteractiveCredentialOptions, CredentialPersistenceOptions {
     clientId?: string;
-    enableMsaPassthrough?: boolean;
     loginHint?: string;
     redirectUri?: string | (() => string);
     tenantId?: string;

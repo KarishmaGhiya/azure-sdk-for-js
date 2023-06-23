@@ -43,11 +43,6 @@ export interface InteractiveBrowserCredentialNodeOptions
    * Setting this option skips the account selection prompt and immediately attempts to login with the specified account.
    */
   loginHint?: string;
-
-  /**
-   * Enables MSA Passthrough to interactive browser authentication.
-   */
-  enableMsaPassthrough?: boolean;
 }
 
 /**

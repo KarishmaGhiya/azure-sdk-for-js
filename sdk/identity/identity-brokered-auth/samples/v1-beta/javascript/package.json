@@ -24,6 +24,7 @@
   "dependencies": {
     "@azure/identity-brokered-auth": "next",
     "dotenv": "latest",
-    "@azure/identity": "^3.2.2"
+    "@azure/identity": "^3.2.3",
+    "electron": "^25.2.0"
   }
 }

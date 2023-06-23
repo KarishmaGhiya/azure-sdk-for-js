@@ -1,7 +1,8 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
-import { MsalNode, MsalNodeOptions } from "./msalNodeCommon";
+import * as msalNode from "@azure/msal-node";
+import { MsalNode, MsalNodeOptions, hasNativeBroker, nativeBrokerInfo } from "./msalNodeCommon";
 import { credentialLogger } from "../../util/logging";
 import { AccessToken } from "@azure/core-auth";
 import { CredentialFlowGetTokenOptions } from "../credentials";
@@ -12,7 +13,7 @@ import open from "open";
  * @internal
  */
 export interface MsalOpenBrowserOptions extends MsalNodeOptions {
-  redirectUri?: string;
+  redirectUri: string;
   loginHint?: string;
 }
 
@@ -43,7 +44,7 @@ export class MsalOpenBrowser extends MsalNode {
     options?: CredentialFlowGetTokenOptions
   ): Promise<AccessToken> {
     try {
-      const result = await this.getApp("public", options?.enableCae).acquireTokenInteractive({
+      let interactiveRequest: msalNode.InteractiveRequest = {
         openBrowser: async (url) => {
           await interactiveBrowserMockable.open(url, { wait: true, newInstance: true });
         },
@@ -52,7 +53,17 @@ export class MsalOpenBrowser extends MsalNode {
         claims: options?.claims,
         correlationId: options?.correlationId,
         loginHint: this.loginHint,
-      });
+      };
+      if (hasNativeBroker()) {
+        interactiveRequest.windowHandle = nativeBrokerInfo!.options.parentWindowHandle;
+        if (nativeBrokerInfo!.options.enableMSAPassthrough) {
+          (interactiveRequest.tokenQueryParameters ??= {})["msal_request_type"] =
+            "consumer_passthrough";
+        }
+      }
+      const result = await this.getApp("public", options?.enableCae).acquireTokenInteractive(
+        interactiveRequest
+      );
       return this.handleResult(scopes, this.clientId, result || undefined);
     } catch (err: any) {
       throw this.handleError(scopes, err, options);

@@ -2,7 +2,10 @@
 // Licensed under the MIT license.
 
 import { useIdentityPlugin } from "@azure/identity";
-import { nativeBrokerPlugin } from "../src";
+import { createNativeBrokerPlugin } from "../src";
 
 // Load the plugin
-useIdentityPlugin(nativeBrokerPlugin);
+useIdentityPlugin(createNativeBrokerPlugin({
+    enableMSAPassthrough: true,
+    parentWindowHandle: Buffer.from("dasdasd","utf-8")
+  }));
