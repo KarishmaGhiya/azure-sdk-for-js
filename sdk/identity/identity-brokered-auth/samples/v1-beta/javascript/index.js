@@ -18,7 +18,6 @@ useIdentityPlugin(createNativeBrokerPlugin({
   enableMSAPassthrough: true,
   parentWindowHandle: win.getNativeWindowHandle()
 }));
-//useIdentityPlugin(nativeBrokerPlugin);
 
 // Load the environment
 dotenv.config();

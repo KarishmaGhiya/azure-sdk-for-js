@@ -4,10 +4,14 @@
 
 ```ts
 
+/// <reference types="node" />
+
 import { IdentityPlugin } from '@azure/identity';
 
+// Warning: (ae-forgotten-export) The symbol "NativeBrokerPluginOptions" needs to be exported by the entry point index.d.ts
+//
 // @public
-export const nativeBrokerPlugin: IdentityPlugin;
+export function createNativeBrokerPlugin(options: NativeBrokerPluginOptions): IdentityPlugin;
 
 // (No @packageDocumentation comment for this package)
 
