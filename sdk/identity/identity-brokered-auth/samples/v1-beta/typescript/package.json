@@ -28,7 +28,8 @@
   "dependencies": {
     "@azure/identity-brokered-auth": "next",
     "dotenv": "latest",
-    "@azure/identity": "^3.2.2"
+    "@azure/identity": "^3.2.2",
+    "electron": "^25.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.0",

@@ -15,7 +15,7 @@ useIdentityPlugin(brokeredAuthPlugin);
 
 ### Prerequisites
 
-- An [Azure subscription](https://azure.microsoft.com/free/).
+- An [Azure subscription](https://azure.microsoft.com/free/nodejs/).
 
 ### Install the package
 

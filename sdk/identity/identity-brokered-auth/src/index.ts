@@ -28,7 +28,9 @@ import { NativeBrokerPlugin } from "@azure/msal-node-extensions";
 
 export function createNativeBrokerPlugin(options: NativeBrokerPluginOptions): IdentityPlugin {
   return async function nativeBrokerPlugin({ nativeBrokerPluginControl }: AzurePluginContext) {
-    nativeBrokerPluginControl.setNativeBroker(new NativeBrokerPlugin(), options)
+    let nativeBrokerPlugin = new NativeBrokerPlugin();
+    nativeBrokerPlugin.isBrokerAvailable = true;
+    nativeBrokerPluginControl.setNativeBroker(nativeBrokerPlugin, options)
   } as IdentityPlugin;
 }
 
