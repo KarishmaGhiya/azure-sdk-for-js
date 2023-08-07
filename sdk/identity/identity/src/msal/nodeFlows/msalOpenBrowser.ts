@@ -55,7 +55,9 @@ export class MsalOpenBrowser extends MsalNode {
 
     const expiresOnTimestamp = response?.expiresOn?.valueOf();
     if (!expiresOnTimestamp) {
-      throw new Error(`Interactive Browser Authentication Error "Did not receive token with a valid expiration"`);
+      throw new Error(
+        `Interactive Browser Authentication Error "Did not receive token with a valid expiration"`
+      );
     }
 
     return {
