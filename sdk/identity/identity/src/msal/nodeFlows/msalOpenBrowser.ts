@@ -5,7 +5,6 @@ import { MsalNode, MsalNodeOptions } from "./msalNodeCommon";
 import { credentialLogger } from "../../util/logging";
 import { AccessToken } from "@azure/core-auth";
 import { CredentialFlowGetTokenOptions } from "../credentials";
-import { CredentialUnavailableError } from "../../errors";
 import open from "open";
 
 /**
@@ -43,27 +42,30 @@ export class MsalOpenBrowser extends MsalNode {
     scopes: string[],
     options?: CredentialFlowGetTokenOptions
   ): Promise<AccessToken> {
-    const response = await this.getApp("public", options?.enableCae).acquireTokenInteractive({
-      openBrowser: async (url) => {
-        await interactiveBrowserMockable.open(url, { wait: true, newInstance: true });
-      },
-      scopes,
-      authority: options?.authority,
-      claims: options?.claims,
-      correlationId: options?.correlationId,
-      loginHint: this.loginHint,
-    });
+    try {
+      const response = await this.getApp("public", options?.enableCae).acquireTokenInteractive({
+        openBrowser: async (url) => {
+          await interactiveBrowserMockable.open(url, { wait: true, newInstance: true });
+        },
+        scopes,
+        authority: options?.authority,
+        claims: options?.claims,
+        correlationId: options?.correlationId,
+        loginHint: this.loginHint,
+      });
 
-    const expiresOnTimestamp = response?.expiresOn?.valueOf();
-    if (!expiresOnTimestamp) {
-      throw new CredentialUnavailableError(
-        `Interactive Browser Authentication Error "Did not receive token with a valid expiration"`
-      );
+      const expiresOnTimestamp = response?.expiresOn?.valueOf();
+      if (!expiresOnTimestamp) {
+        throw new Error(
+          `Interactive Browser Authentication Error "Did not receive token with a valid expiration"`
+        );
+      }
+
+      return {
+        expiresOnTimestamp: expiresOnTimestamp,
+        token: response.accessToken,
+      };
     }
 
-    return {
-      expiresOnTimestamp: expiresOnTimestamp,
-      token: response.accessToken,
-    };
   }
 }
