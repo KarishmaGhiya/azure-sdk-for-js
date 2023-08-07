@@ -5,6 +5,7 @@ import { MsalNode, MsalNodeOptions } from "./msalNodeCommon";
 import { credentialLogger } from "../../util/logging";
 import { AccessToken } from "@azure/core-auth";
 import { CredentialFlowGetTokenOptions } from "../credentials";
+import { CredentialUnavailableError } from "../../errors";
 import open from "open";
 
 /**
@@ -55,7 +56,7 @@ export class MsalOpenBrowser extends MsalNode {
 
     const expiresOnTimestamp = response?.expiresOn?.valueOf();
     if (!expiresOnTimestamp) {
-      throw new Error(
+      throw new CredentialUnavailableError(
         `Interactive Browser Authentication Error "Did not receive token with a valid expiration"`
       );
     }
