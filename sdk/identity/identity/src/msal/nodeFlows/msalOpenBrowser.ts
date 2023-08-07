@@ -12,7 +12,7 @@ import open from "open";
  * @internal
  */
 export interface MsalOpenBrowserOptions extends MsalNodeOptions {
-  redirectUri: string;
+  redirectUri?: string;
   loginHint?: string;
 }
 
@@ -55,7 +55,9 @@ export class MsalOpenBrowser extends MsalNode {
 
     const expiresOnTimestamp = response?.expiresOn?.valueOf();
     if (!expiresOnTimestamp) {
-      throw new Error(`Interactive Browser Authentication Error "Did not receive token with a valid expiration"`);
+      throw new Error(
+        `Interactive Browser Authentication Error "Did not receive token with a valid expiration"`
+      );
     }
 
     return {
