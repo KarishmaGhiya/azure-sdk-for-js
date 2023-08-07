@@ -64,9 +64,6 @@ describe("InteractiveBrowserCredential (internal)", function () {
     }
 
     assert.equal(error?.name, "TestError");
-    assert.equal(
-      error?.message,
-      "No browsers available on this test."
-    );
+    assert.equal(error?.message, "No browsers available on this test.");
   });
 });
