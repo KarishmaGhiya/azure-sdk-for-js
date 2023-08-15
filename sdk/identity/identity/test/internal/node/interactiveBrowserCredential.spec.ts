@@ -46,7 +46,7 @@ describe("InteractiveBrowserCredential (internal)", function () {
   it("Throws an expected error if no browser is available", async function (this: Context) {
     // The SinonStub type does not include this second parameter to throws().
     const testErrorMessage = "No browsers available on this test.";
-    (sandbox.stub(interactiveBrowserMockable, "open") as any).throws("TestError", testErrorMessage);
+    (sandbox.stub(interactiveBrowserMockable, "open") as any).throws("BrowserConfigurationAuthError", testErrorMessage);
 
     const credential = new InteractiveBrowserCredential(
       recorder.configureClientOptions({
@@ -62,8 +62,9 @@ describe("InteractiveBrowserCredential (internal)", function () {
     } catch (e: any) {
       error = e;
     }
-
-    assert.equal(error?.name, "TestError");
+    console.log(error?.name);
+    console.log(error?.message);
+    assert.equal(error?.name, "BrowserConfigurationAuthError");
     assert.equal(error?.message, "No browsers available on this test.");
   });
 });
