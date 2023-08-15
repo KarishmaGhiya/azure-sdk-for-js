@@ -42,27 +42,20 @@ export class MsalOpenBrowser extends MsalNode {
     scopes: string[],
     options?: CredentialFlowGetTokenOptions
   ): Promise<AccessToken> {
-    const response = await this.getApp("public", options?.enableCae).acquireTokenInteractive({
-      openBrowser: async (url) => {
-        await interactiveBrowserMockable.open(url, { wait: true, newInstance: true });
-      },
-      scopes,
-      authority: options?.authority,
-      claims: options?.claims,
-      correlationId: options?.correlationId,
-      loginHint: this.loginHint,
-    });
-
-    const expiresOnTimestamp = response?.expiresOn?.valueOf();
-    if (!expiresOnTimestamp) {
-      throw new Error(
-        `Interactive Browser Authentication Error "Did not receive token with a valid expiration"`
-      );
+    try {
+      const result = await this.getApp("public", options?.enableCae).acquireTokenInteractive({
+        openBrowser: async (url) => {
+          await interactiveBrowserMockable.open(url, { wait: true, newInstance: true });
+        },
+        scopes,
+        authority: options?.authority,
+        claims: options?.claims,
+        correlationId: options?.correlationId,
+        loginHint: this.loginHint,
+      });
+      return this.handleResult(scopes, this.clientId, result || undefined);
+    } catch (err: any) {
+      throw this.handleError(scopes, err, options);
     }
-
-    return {
-      expiresOnTimestamp: expiresOnTimestamp,
-      token: response.accessToken,
-    };
   }
 }
