@@ -65,8 +65,7 @@ describe("InteractiveBrowserCredential (internal)", function () {
     } catch (e: any) {
       error = e;
     }
-    console.log(error?.name);
-    console.log(error?.message);
+
     assert.equal(error?.name, "BrowserConfigurationAuthError");
     assert.equal(error?.message, "No browsers available on this test.");
   });
