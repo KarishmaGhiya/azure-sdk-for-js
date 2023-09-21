@@ -1543,8 +1543,25 @@ packages:
       '@azure/msal-common': 13.3.0
     dev: false
 
+  /@azure/msal-browser@3.1.0:
+    resolution: {integrity: sha512-zQpL/mR6Xif+WltcRMej8wRsBQu+lW8e1/su8SMkF41i+Pnn/a/a/l+VoT4D+cQrBAq3PL5IaLfuUoNVTRUjKw==}
+    engines: {node: '>=0.8.0'}
+    dependencies:
+      '@azure/msal-common': 14.0.3
+    dev: false
+
   /@azure/msal-common@13.3.0:
     resolution: {integrity: sha512-/VFWTicjcJbrGp3yQP7A24xU95NiDMe23vxIU1U6qdRPFsprMDNUohMudclnd+WSHE4/McqkZs/nUU3sAKkVjg==}
+    engines: {node: '>=0.8.0'}
+    dev: false
+
+  /@azure/msal-common@14.0.3:
+    resolution: {integrity: sha512-Vl5SsC3zvQ8913GnO5Typox+35M6CaXmO/2FXi35LfMAV3ZB/HLCsldLxylI01c3CmtOm7pICWpOjp/DlQ9RWA==}
+    engines: {node: '>=0.8.0'}
+    dev: false
+
+  /@azure/msal-common@14.1.0-alpha.0:
+    resolution: {integrity: sha512-cVaLtCvSzc9ioYsTRVWv5TBnXoCFFAxsSM/05lkImol97rK6bHw5WfxI5da3Ksu0jtRBLzmZgqc7uQOKTinuJw==}
     engines: {node: '>=0.8.0'}
     dev: false
 
@@ -1568,6 +1585,15 @@ packages:
     engines: {node: 10 || 12 || 14 || 16 || 18}
     dependencies:
       '@azure/msal-common': 13.3.0
+      jsonwebtoken: 9.0.1
+      uuid: 8.3.2
+    dev: false
+
+  /@azure/msal-node@2.2.0-alpha.0:
+    resolution: {integrity: sha512-ZfkNyHjppOxEMkUM7zpmgyuPI1C3e/IXM31f+SwEYGJy5TFfsffMz/5DYBnI5X6QhoruK08JXvJ0mSJG9/IIbw==}
+    engines: {node: 18 || 20}
+    dependencies:
+      '@azure/msal-common': 14.1.0-alpha.0
       jsonwebtoken: 9.0.1
       uuid: 8.3.2
     dev: false
@@ -19324,13 +19350,13 @@ packages:
     dev: false
 
   file:projects/identity.tgz:
-    resolution: {integrity: sha512-pr7qqvdP8qxZ+3Y4MLANU4NKoms2H7w8X3jrNrWwqtETVROBCI7cYtOY2b9V4sAjuJx4zq24Fq+4w/Q7T62/6g==, tarball: file:projects/identity.tgz}
+    resolution: {integrity: sha512-ctrZFXXHyheeEYeyyJovfwgzajW6tGc1pG3sjtHl/cyAzW1pvBY1pZc3AvskV1CvAgcLiZONPbOaTxdzZIoxlg==, tarball: file:projects/identity.tgz}
     name: '@rush-temp/identity'
     version: 0.0.0
     dependencies:
-      '@azure/msal-browser': 2.38.2
+      '@azure/msal-browser': 3.1.0
       '@azure/msal-common': 13.3.0
-      '@azure/msal-node': 1.18.2
+      '@azure/msal-node': 2.2.0-alpha.0
       '@microsoft/api-extractor': 7.36.4(@types/node@14.18.56)
       '@types/chai': 4.3.6
       '@types/jsonwebtoken': 9.0.2
