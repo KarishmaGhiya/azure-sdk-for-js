@@ -11,6 +11,7 @@ import { CommunicationIdentifier } from '@azure/communication-common';
 import { CommunicationUserIdentifier } from '@azure/communication-common';
 import * as coreClient from '@azure/core-client';
 import { KeyCredential } from '@azure/core-auth';
+import { MicrosoftTeamsUserIdentifier } from '@azure/communication-common';
 import { OperationOptions } from '@azure/core-client';
 import { PhoneNumberIdentifier } from '@azure/communication-common';
 import { TokenCredential } from '@azure/core-auth';
@@ -137,7 +138,7 @@ export interface CallInvite {
     readonly sourceCallIdNumber?: PhoneNumberIdentifier;
     // (undocumented)
     sourceDisplayName?: string;
-    readonly targetParticipant: PhoneNumberIdentifier | CommunicationUserIdentifier;
+    readonly targetParticipant: PhoneNumberIdentifier | CommunicationUserIdentifier | MicrosoftTeamsUserIdentifier;
 }
 
 // @public
@@ -181,6 +182,8 @@ export interface CallMediaRecognizeDtmfOptions extends CallMediaRecognizeOptions
 
 // @public
 export interface CallMediaRecognizeOptions extends OperationOptions {
+    // (undocumented)
+    callbackUrl?: string;
     // (undocumented)
     initialSilenceTimeoutInSeconds?: number;
     // (undocumented)
@@ -272,6 +275,7 @@ export interface Choice {
 
 // @public
 export interface ContinuousDtmfRecognitionOptions extends OperationOptions {
+    callbackUrl?: string;
     operationContext?: string;
 }
 
@@ -494,9 +498,8 @@ export interface PlayFailed extends Omit<RestPlayFailed, "callConnectionId" | "s
 
 // @public
 export interface PlayOptions extends OperationOptions {
-    // (undocumented)
+    callbackUrl?: string;
     loop?: boolean;
-    // (undocumented)
     operationContext?: string;
 }
 
@@ -866,6 +869,7 @@ export interface SendDtmfFailed extends Omit<RestSendDtmfFailed, "callConnection
 
 // @public
 export interface SendDtmfOptions extends OperationOptions {
+    callbackUrl?: string;
     operationContext?: string;
 }
 
