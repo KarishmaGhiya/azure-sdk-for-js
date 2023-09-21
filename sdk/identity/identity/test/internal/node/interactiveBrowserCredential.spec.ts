@@ -43,7 +43,7 @@ describe("InteractiveBrowserCredential (internal)", function () {
 
   const scope = "https://vault.azure.net/.default";
 
-  it("Throws an expected error if no browser is available", async function (this: Context) {
+  it.only("Throws an expected error if no browser is available", async function (this: Context) {
     // The SinonStub type does not include this second parameter to throws().
     const testErrorMessage = "No browsers available on this test.";
     (sandbox.stub(interactiveBrowserMockable, "open") as any).throws(

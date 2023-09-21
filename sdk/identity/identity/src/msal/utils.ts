@@ -1,8 +1,8 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
+import * as msalNode from "@azure/msal-node";
 import * as msalCommon from "@azure/msal-common";
-
 import { AccessToken, GetTokenOptions } from "@azure/core-auth";
 import { AuthenticationRecord, MsalAccountInfo, MsalResult, MsalToken } from "./types";
 import { AuthenticationRequiredError, CredentialUnavailableError } from "../errors";
@@ -99,16 +99,16 @@ export const defaultLoggerCallback: (
       return;
     }
     switch (level) {
-      case msalCommon.LogLevel.Error:
+      case msalNode.LogLevel.Error:
         logger.info(`MSAL ${platform} V2 error: ${message}`);
         return;
-      case msalCommon.LogLevel.Info:
+      case msalNode.LogLevel.Info:
         logger.info(`MSAL ${platform} V2 info message: ${message}`);
         return;
-      case msalCommon.LogLevel.Verbose:
+      case msalNode.LogLevel.Verbose:
         logger.info(`MSAL ${platform} V2 verbose message: ${message}`);
         return;
-      case msalCommon.LogLevel.Warning:
+      case msalNode.LogLevel.Warning:
         logger.info(`MSAL ${platform} V2 warning: ${message}`);
         return;
     }
@@ -117,19 +117,19 @@ export const defaultLoggerCallback: (
 /**
  * @internal
  */
-export function getMSALLogLevel(logLevel: AzureLogLevel | undefined): msalCommon.LogLevel {
+export function getMSALLogLevel(logLevel: AzureLogLevel | undefined): msalNode.LogLevel {
   switch (logLevel) {
     case "error":
-      return msalCommon.LogLevel.Error;
+      return msalNode.LogLevel.Error;
     case "info":
-      return msalCommon.LogLevel.Info;
+      return msalNode.LogLevel.Info;
     case "verbose":
-      return msalCommon.LogLevel.Verbose;
+      return msalNode.LogLevel.Verbose;
     case "warning":
-      return msalCommon.LogLevel.Warning;
+      return msalNode.LogLevel.Warning;
     default:
       // default msal logging level should be Info
-      return msalCommon.LogLevel.Info;
+      return msalNode.LogLevel.Info;
   }
 }
 
@@ -188,7 +188,7 @@ export class MsalBaseUtilities {
       error.name === "ClientAuthError" ||
       error.name === "BrowserAuthError"
     ) {
-      const msalError = error as msalCommon.AuthError;
+      const msalError = error as msalNode.AuthError;
       switch (msalError.errorCode) {
         case "endpoints_resolution_error":
           this.logger.info(formatError(scopes, error.message));
@@ -220,7 +220,7 @@ export class MsalBaseUtilities {
 
 // transformations.ts
 
-export function publicToMsal(account: AuthenticationRecord): msalCommon.AccountInfo {
+export function publicToMsal(account: AuthenticationRecord): msalNode.AccountInfo {
   const [environment] = account.authority.match(/([a-z]*\.[a-z]*\.[a-z]*)/) || [""];
   return {
     ...account,
