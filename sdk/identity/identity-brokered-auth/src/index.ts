@@ -5,6 +5,7 @@ import { AzurePluginContext, NativeBrokerPluginOptions } from "../../identity/sr
 import { IdentityPlugin } from "@azure/identity";
 import { NativeBrokerPlugin } from "@azure/msal-node-extensions";
 
+export { NativeBrokerPluginOptions } from "../../identity/src/plugins/provider";
 /**
  * A plugin that provides WAM Integration for `@azure/identity`
  * credentials. The plugin API is compatible with `@azure/identity` versions

@@ -8,10 +8,16 @@
 
 import { IdentityPlugin } from '@azure/identity';
 
-// Warning: (ae-forgotten-export) The symbol "NativeBrokerPluginOptions" needs to be exported by the entry point index.d.ts
-//
 // @public
 export function createNativeBrokerPlugin(options: NativeBrokerPluginOptions): IdentityPlugin;
+
+// @public (undocumented)
+export interface NativeBrokerPluginOptions {
+    // (undocumented)
+    enableMSAPassthrough: boolean;
+    // (undocumented)
+    parentWindowHandle: Buffer;
+}
 
 // (No @packageDocumentation comment for this package)
 
