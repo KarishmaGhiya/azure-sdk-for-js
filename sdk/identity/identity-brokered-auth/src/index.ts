@@ -30,17 +30,6 @@ export function createNativeBrokerPlugin(options: NativeBrokerPluginOptions): Id
   return async function nativeBrokerPlugin({ nativeBrokerPluginControl }: AzurePluginContext) {
     let nativeBrokerPlugin = new NativeBrokerPlugin();
     nativeBrokerPlugin.isBrokerAvailable = true;
-    nativeBrokerPluginControl.setNativeBroker(nativeBrokerPlugin, options)
+    nativeBrokerPluginControl.setNativeBroker(nativeBrokerPlugin, options);
   } as IdentityPlugin;
 }
-
-// export const nativeBrokerPlugin: IdentityPlugin = (context) => {
-//   const { nativeBrokerPluginControl } = context as AzurePluginContext;
-  
-//   nativeBrokerPluginControl.setNativeBroker(async () => new NativeBrokerPlugin());
-//   nativeBrokerPluginControl.createNativeBrokerPlugin(async(options?: NativeBrokerPluginOptions) => {
-    
-//     return new NativeBrokerPlugin()
-//   }
-//   );
-// };

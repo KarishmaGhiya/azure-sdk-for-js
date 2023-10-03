@@ -98,8 +98,8 @@ export const msalNodeFlowNativeBrokerControl: NativeBrokerPluginControl = {
   setNativeBroker(broker, options): void {
     nativeBrokerInfo = {
       broker,
-      options
-    }
+      options,
+    };
   },
 };
 
@@ -281,7 +281,7 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
 
     if (hasNativeBroker()) {
       this.msalConfig.broker = {
-        nativeBrokerPlugin: nativeBrokerInfo!.broker
+        nativeBrokerPlugin: nativeBrokerInfo!.broker,
       };
     }
 
@@ -290,9 +290,6 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
     } else {
       this.app.public = new msalNode.PublicClientApplication(this.msalConfig);
     }
-
-
-
 
     if (this.getAssertion) {
       this.msalConfig.auth.clientAssertion = await this.getAssertion();

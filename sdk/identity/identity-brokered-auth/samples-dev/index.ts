@@ -9,14 +9,16 @@
 import { InteractiveBrowserCredential, useIdentityPlugin } from "@azure/identity";
 import { createNativeBrokerPlugin } from "@azure/identity-brokered-auth";
 import dotenv from "dotenv";
-import { BrowserWindow } from 'electron';
+import { BrowserWindow } from "electron";
 const win = new BrowserWindow();
 
 // Load the plugin
-useIdentityPlugin(createNativeBrokerPlugin({
-  enableMSAPassthrough: true,
-  parentWindowHandle: win.getNativeWindowHandle()
-}));
+useIdentityPlugin(
+  createNativeBrokerPlugin({
+    enableMSAPassthrough: true,
+    parentWindowHandle: win.getNativeWindowHandle(),
+  })
+);
 
 // Load the environment
 dotenv.config();
@@ -37,7 +39,6 @@ async function main() {
   const token = await credential.getToken(scope);
 
   console.log(`Token: ${token.token}: ${token.expiresOnTimestamp}`);
-
 }
 
 main().catch((error) => {

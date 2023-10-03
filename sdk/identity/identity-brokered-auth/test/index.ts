@@ -5,7 +5,9 @@ import { useIdentityPlugin } from "@azure/identity";
 import { createNativeBrokerPlugin } from "../src";
 
 // Load the plugin
-useIdentityPlugin(createNativeBrokerPlugin({
+useIdentityPlugin(
+  createNativeBrokerPlugin({
     enableMSAPassthrough: true,
-    parentWindowHandle: Buffer.from("dasdasd","utf-8")
-  }));
+    parentWindowHandle: Buffer.from("dasdasd", "utf-8"),
+  })
+);

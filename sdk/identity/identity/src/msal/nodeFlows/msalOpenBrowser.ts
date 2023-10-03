@@ -53,14 +53,17 @@ export class MsalOpenBrowser extends MsalNode {
         claims: options?.claims,
         correlationId: options?.correlationId,
         loginHint: this.loginHint,
-      }
+      };
       if (hasNativeBroker()) {
         interactiveRequest.windowHandle = nativeBrokerInfo!.options.parentWindowHandle;
         if (nativeBrokerInfo!.options.enableMSAPassthrough) {
-          (interactiveRequest.tokenQueryParameters ??= {})["msal_request_type"] = "consumer_passthrough";
+          (interactiveRequest.tokenQueryParameters ??= {})["msal_request_type"] =
+            "consumer_passthrough";
         }
       }
-      const result = await this.getApp("public", options?.enableCae).acquireTokenInteractive(interactiveRequest);
+      const result = await this.getApp("public", options?.enableCae).acquireTokenInteractive(
+        interactiveRequest
+      );
       return this.handleResult(scopes, this.clientId, result || undefined);
     } catch (err: any) {
       throw this.handleError(scopes, err, options);
