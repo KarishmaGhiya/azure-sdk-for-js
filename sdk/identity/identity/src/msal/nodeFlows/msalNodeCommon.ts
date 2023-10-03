@@ -113,10 +113,6 @@ export const msalNodeFlowNativeBrokerControl: NativeBrokerPluginControl = {
  * @internal
  */
 export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
-  // protected publicApp: msalNode.PublicClientApplication | undefined;
-  // protected publicAppCae: msalNode.PublicClientApplication | undefined;
-  // protected confidentialApp: msalNode.ConfidentialClientApplication | undefined;
-  // protected confidentialAppCae: msalNode.ConfidentialClientApplication | undefined;
   private app: {
     public?: msalNode.PublicClientApplication;
     confidential?: msalNode.ConfidentialClientApplication;
@@ -287,16 +283,6 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
       this.msalConfig.broker = {
         nativeBrokerPlugin: nativeBrokerInfo!.broker
       };
-    }
-
-    if (options?.enableMsaPassthrough) {
-
-      // WTF is this?
-      /*
-      this.msalConfig.extraQueryParameters: {
-        "msal_request_type": "consumer_passthrough"
-      }
-      */
     }
 
     if (options?.enableCae) {

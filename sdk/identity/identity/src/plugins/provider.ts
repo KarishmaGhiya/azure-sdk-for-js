@@ -29,17 +29,10 @@ export interface NativeBrokerPluginOptions {
 }
 
 export interface NativeBrokerPluginControl {
-  // useBroker: boolean;
-  // enableMSAPassthrough: boolean;
-  // parentWindowHandle: string;
-
   setNativeBroker(
     nativeBroker: import("@azure/msal-common").INativeBrokerPlugin,
     options: NativeBrokerPluginOptions
   ): void;
-  // createNativeBrokerPlugin(
-  //   nativeBrokerFactory: () => Promise<import("@azure/msal-common").INativeBrokerPlugin>
-  // ): void;
 }
 
 /**
