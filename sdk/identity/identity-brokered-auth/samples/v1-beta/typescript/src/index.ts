@@ -10,7 +10,10 @@ import { InteractiveBrowserCredential, useIdentityPlugin } from "@azure/identity
 import { createNativeBrokerPlugin } from "@azure/identity-brokered-auth";
 import dotenv from "dotenv";
 import { BrowserWindow } from 'electron';
-const win = new BrowserWindow();
+const win = new BrowserWindow({
+  width: 800,
+  height: 600,
+});
 
 // Load the plugin
 useIdentityPlugin(createNativeBrokerPlugin({

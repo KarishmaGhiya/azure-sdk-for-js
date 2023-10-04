@@ -9,22 +9,27 @@
 const { InteractiveBrowserCredential, useIdentityPlugin } = require("@azure/identity");
 const { createNativeBrokerPlugin } = require("@azure/identity-brokered-auth");
 const dotenv = require("dotenv");
-const {app, BrowserWindow} = require("electron");
+const { app, BrowserWindow} = require("electron");
+
+
 
 // Load the environment
 dotenv.config();
 
   // Load the plugin
-
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      enableRemoteModule: true
+    }
   })
   win.loadFile('index.html')
   return win.getNativeWindowHandle()
 }
 
+console.dir(`electron app not found?? = ${app}`);
   app.on('ready', async() => {
   let winHandle = createWindow()
 
