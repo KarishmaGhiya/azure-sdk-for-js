@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 import * as msalNode from "@azure/msal-node";
+import * as msalCommon from "@azure/msal-common";
 import { AccessToken, GetTokenOptions } from "@azure/core-auth";
 import { getLogLevel } from "@azure/logger";
 import {
@@ -82,7 +83,7 @@ export const msalNodeFlowCacheControl = {
  * @internal
  */
 export let nativeBrokerInfo: {
-  broker: msalNode.INativeBrokerPlugin;
+  broker: msalCommon.INativeBrokerPlugin;
   options: NativeBrokerPluginOptions
 } | undefined = undefined;
 
@@ -131,7 +132,7 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
   protected azureRegion?: string;
   protected createCachePlugin: (() => Promise<msalNode.ICachePlugin>) | undefined;
   protected createCachePluginCae: (() => Promise<msalNode.ICachePlugin>) | undefined;
-  protected createNativeBrokerPlugin: (() => Promise<msalNode.INativeBrokerPlugin>) | undefined;
+  protected createNativeBrokerPlugin: (() => Promise<msalCommon.INativeBrokerPlugin>) | undefined;
   protected enableMsaPassthrough?: boolean;
   /**
    * MSAL currently caches the tokens depending on the claims used to retrieve them.
