@@ -57,7 +57,6 @@ export class InteractiveBrowserCredential implements TokenCredential {
     this.additionallyAllowedTenantIds = resolveAddionallyAllowedTenantIds(
       options?.additionallyAllowedTenants
     );
-
     this.msalFlow = new MsalOpenBrowser({
       ...options,
       tokenCredentialOptions: options,

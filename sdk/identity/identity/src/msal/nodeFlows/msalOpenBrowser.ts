@@ -44,7 +44,7 @@ export class MsalOpenBrowser extends MsalNode {
     options?: CredentialFlowGetTokenOptions
   ): Promise<AccessToken> {
     try {
-      let interactiveRequest: msalNode.InteractiveRequest = {
+      const interactiveRequest: msalNode.InteractiveRequest = {
         openBrowser: async (url) => {
           await interactiveBrowserMockable.open(url, { wait: true, newInstance: true });
         },
@@ -54,7 +54,7 @@ export class MsalOpenBrowser extends MsalNode {
         correlationId: options?.correlationId,
         loginHint: this.loginHint,
       };
-      if (hasNativeBroker()) {
+      if (hasNativeBroker() && this.useBroker) {
         interactiveRequest.windowHandle = nativeBrokerInfo!.options.parentWindowHandle;
         if (nativeBrokerInfo!.options.enableMSAPassthrough) {
           (interactiveRequest.tokenQueryParameters ??= {})["msal_request_type"] =
@@ -64,6 +64,9 @@ export class MsalOpenBrowser extends MsalNode {
       const result = await this.getApp("public", options?.enableCae).acquireTokenInteractive(
         interactiveRequest
       );
+      if (result.fromNativeBroker) {
+        this.logger.verbose(`This result is returned from native broker`);
+      }
       return this.handleResult(scopes, this.clientId, result || undefined);
     } catch (err: any) {
       throw this.handleError(scopes, err, options);

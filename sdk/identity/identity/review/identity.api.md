@@ -295,6 +295,7 @@ export interface InteractiveBrowserCredentialNodeOptions extends InteractiveCred
 export interface InteractiveCredentialOptions extends MultiTenantTokenCredentialOptions, AuthorityValidationOptions {
     authenticationRecord?: AuthenticationRecord;
     disableAutomaticAuthentication?: boolean;
+    useBroker?: boolean;
 }
 
 // @public

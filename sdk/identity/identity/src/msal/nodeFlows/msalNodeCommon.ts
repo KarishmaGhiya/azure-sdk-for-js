@@ -46,6 +46,10 @@ export interface MsalNodeOptions extends MsalFlowOptions {
    */
   regionalAuthority?: string;
   /**
+   * used for WAM functionality with Interactive browser credentials
+   */
+  useBroker?: boolean;
+  /**
    * Allows users to configure settings for logging policy options, allow logging account information and personally identifiable information for customer support.
    */
   loggingOptions?: LogPolicyOptions & {
@@ -82,10 +86,12 @@ export const msalNodeFlowCacheControl = {
  * The current native broker provider, undefined by default.
  * @internal
  */
-export let nativeBrokerInfo: {
-  broker: msalCommon.INativeBrokerPlugin;
-  options: NativeBrokerPluginOptions
-} | undefined = undefined;
+export let nativeBrokerInfo:
+  | {
+      broker: msalCommon.INativeBrokerPlugin;
+      options: NativeBrokerPluginOptions;
+    }
+  | undefined = undefined;
 
 export function hasNativeBroker(): boolean {
   return nativeBrokerInfo !== undefined;
@@ -134,6 +140,7 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
   protected createCachePluginCae: (() => Promise<msalNode.ICachePlugin>) | undefined;
   protected createNativeBrokerPlugin: (() => Promise<msalCommon.INativeBrokerPlugin>) | undefined;
   protected enableMsaPassthrough?: boolean;
+  protected useBroker?: boolean;
   /**
    * MSAL currently caches the tokens depending on the claims used to retrieve them.
    * In cases like CAE, in which we use claims to update the tokens, trying to retrieve the token without the claims will yield the original token.
@@ -153,7 +160,7 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
     if (options?.getAssertion) {
       this.getAssertion = options.getAssertion;
     }
-
+    this.useBroker = options?.useBroker || false;
     // If persistence has been configured
     if (persistenceProvider !== undefined && options.tokenCachePersistenceOptions?.enabled) {
       const nonCaeOptions = {
@@ -280,7 +287,7 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
       };
     }
 
-    if (hasNativeBroker()) {
+    if (hasNativeBroker() && this.useBroker) {
       this.msalConfig.broker = {
         nativeBrokerPlugin: nativeBrokerInfo!.broker,
       };
@@ -392,7 +399,7 @@ To work with multiple accounts for the same Client ID and Tenant ID, please prov
       claims: options?.claims,
     };
 
-    if (hasNativeBroker() && nativeBrokerInfo!.options.enableMSAPassthrough) {
+    if (hasNativeBroker() && nativeBrokerInfo!.options.enableMSAPassthrough && this.useBroker) {
       if (!silentRequest.tokenQueryParameters) {
         silentRequest.tokenQueryParameters = {};
       }

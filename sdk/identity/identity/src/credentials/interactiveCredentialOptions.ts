@@ -28,4 +28,8 @@ export interface InteractiveCredentialOptions
    * Developers will need to call to `authenticate()` to control when to manually authenticate.
    */
   disableAutomaticAuthentication?: boolean;
+  /**
+   * Allows users to opt-in the WAM functionality.
+   */
+  useBroker?: boolean;
 }

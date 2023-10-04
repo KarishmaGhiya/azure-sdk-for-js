@@ -47,13 +47,19 @@ console.dir(`electron app not found?? = ${app}`);
     );
   }
   try{
+    //with broker
     const credential = new InteractiveBrowserCredential({
       clientId: process.env.AZURE_CLIENT_ID || "client",
       authorityHost: process.env.AZURE_AUTHORITY_HOST,
       tenantId: process.env.AZURE_TENANT_ID,
-      //redirectUri: "http://localhost:1337"
+      useBroker: true
     });
-  
+    //without broker
+    const cred2 = new InteractiveBrowserCredential({
+      clientId: process.env.AZURE_CLIENT_ID || "client",
+      authorityHost: process.env.AZURE_AUTHORITY_HOST,
+      tenantId: process.env.AZURE_TENANT_ID,
+    });
     // This is the scope we will use to get a token from the AAD token endpoint.
     // By default, we'll use the Microsoft Graph scope as an example, but when
     // you use the credential with an Azure SDK package, it will configure the
@@ -63,6 +69,9 @@ console.dir(`electron app not found?? = ${app}`);
     const token = await credential.getToken(scope);
   
     console.log(`Token: ${token.token}: ${token.expiresOnTimestamp}`);
+    const token2 = await cred2.getToken(scope);
+  
+    console.log(`Token: ${token2.token}: ${token2.expiresOnTimestamp}`);
   }
   catch(e){
     console.log(e);
