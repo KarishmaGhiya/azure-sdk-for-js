@@ -43,6 +43,11 @@ export interface InteractiveBrowserCredentialNodeOptions
    * Setting this option skips the account selection prompt and immediately attempts to login with the specified account.
    */
   loginHint?: string;
+
+  /**
+   * Allows users to opt-in the WAM functionality.
+   */
+  useBroker?: boolean
 }
 
 /**
