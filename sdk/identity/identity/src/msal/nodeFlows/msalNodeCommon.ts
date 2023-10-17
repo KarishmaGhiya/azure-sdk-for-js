@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 import * as msalNode from "@azure/msal-node";
+import * as msalCommon from "@azure/msal-common";
 import { AccessToken, GetTokenOptions } from "@azure/core-auth";
 import { getLogLevel } from "@azure/logger";
 import {
@@ -29,6 +30,7 @@ import { LogPolicyOptions } from "@azure/core-rest-pipeline";
 import { MultiTenantTokenCredentialOptions } from "../../credentials/multiTenantTokenCredentialOptions";
 import { RegionalAuthority } from "../../regionalAuthority";
 import { TokenCachePersistenceOptions } from "./tokenCachePersistenceOptions";
+import { NativeBrokerPluginControl, NativeBrokerPluginOptions } from "../../plugins/provider";
 
 /**
  * Union of the constructor parameters that all MSAL flow types for Node.
@@ -43,6 +45,10 @@ export interface MsalNodeOptions extends MsalFlowOptions {
    * If the property is not specified, uses a non-regional authority endpoint.
    */
   regionalAuthority?: string;
+  /**
+   * used for WAM functionality with Interactive browser credentials
+   */
+  useBroker?: boolean;
   /**
    * Allows users to configure settings for logging policy options, allow logging account information and personally identifiable information for customer support.
    */
@@ -77,6 +83,34 @@ export const msalNodeFlowCacheControl = {
 };
 
 /**
+ * The current native broker provider, undefined by default.
+ * @internal
+ */
+export let nativeBrokerInfo:
+  | {
+      broker: msalCommon.INativeBrokerPlugin;
+      options: NativeBrokerPluginOptions;
+    }
+  | undefined = undefined;
+
+export function hasNativeBroker(): boolean {
+  return nativeBrokerInfo !== undefined;
+}
+
+/**
+ * An object that allows setting the native broker provider.
+ * @internal
+ */
+export const msalNodeFlowNativeBrokerControl: NativeBrokerPluginControl = {
+  setNativeBroker(broker, options): void {
+    nativeBrokerInfo = {
+      broker,
+      options,
+    };
+  },
+};
+
+/**
  * MSAL partial base client for Node.js.
  *
  * It completes the input configuration with some default values.
@@ -86,10 +120,6 @@ export const msalNodeFlowCacheControl = {
  * @internal
  */
 export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
-  // protected publicApp: msalNode.PublicClientApplication | undefined;
-  // protected publicAppCae: msalNode.PublicClientApplication | undefined;
-  // protected confidentialApp: msalNode.ConfidentialClientApplication | undefined;
-  // protected confidentialAppCae: msalNode.ConfidentialClientApplication | undefined;
   private app: {
     public?: msalNode.PublicClientApplication;
     confidential?: msalNode.ConfidentialClientApplication;
@@ -108,7 +138,9 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
   protected azureRegion?: string;
   protected createCachePlugin: (() => Promise<msalNode.ICachePlugin>) | undefined;
   protected createCachePluginCae: (() => Promise<msalNode.ICachePlugin>) | undefined;
-
+  protected createNativeBrokerPlugin: (() => Promise<msalCommon.INativeBrokerPlugin>) | undefined;
+  protected enableMsaPassthrough?: boolean;
+  protected useBroker?: boolean;
   /**
    * MSAL currently caches the tokens depending on the claims used to retrieve them.
    * In cases like CAE, in which we use claims to update the tokens, trying to retrieve the token without the claims will yield the original token.
@@ -128,7 +160,7 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
     if (options?.getAssertion) {
       this.getAssertion = options.getAssertion;
     }
-
+    this.useBroker = options?.useBroker || false;
     // If persistence has been configured
     if (persistenceProvider !== undefined && options.tokenCachePersistenceOptions?.enabled) {
       const nonCaeOptions = {
@@ -255,6 +287,12 @@ export abstract class MsalNode extends MsalBaseUtilities implements MsalFlow {
       };
     }
 
+    if (hasNativeBroker() && this.useBroker) {
+      this.msalConfig.broker = {
+        nativeBrokerPlugin: nativeBrokerInfo!.broker,
+      };
+    }
+
     if (options?.enableCae) {
       this.caeApp.public = new msalNode.PublicClientApplication(this.msalConfig);
     } else {
@@ -360,6 +398,14 @@ To work with multiple accounts for the same Client ID and Tenant ID, please prov
       authority: options?.authority,
       claims: options?.claims,
     };
+
+    if (hasNativeBroker() && nativeBrokerInfo!.options.enableMSAPassthrough && this.useBroker) {
+      if (!silentRequest.tokenQueryParameters) {
+        silentRequest.tokenQueryParameters = {};
+      }
+
+      silentRequest.tokenQueryParameters["msal_request_type"] = "consumer_passthrough";
+    }
 
     try {
       this.logger.info("Attempting to acquire token silently");

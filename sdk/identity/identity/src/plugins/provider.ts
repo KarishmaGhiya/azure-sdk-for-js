@@ -21,6 +21,20 @@ export interface CachePluginControl {
   ): void;
 }
 
+export interface NativeBrokerPluginOptions {
+  // We don't think this is necessary in JS as the user has to explicitly opt in to the plugin.
+  // useBroker: boolean;
+  enableMSAPassthrough: boolean;
+  parentWindowHandle: Buffer;
+}
+
+export interface NativeBrokerPluginControl {
+  setNativeBroker(
+    nativeBroker: import("@azure/msal-common").INativeBrokerPlugin,
+    options: NativeBrokerPluginOptions
+  ): void;
+}
+
 /**
  * Plugin context entries for controlling VisualStudioCodeCredential.
  */
@@ -38,5 +52,6 @@ export interface VisualStudioCodeCredentialControl {
  */
 export interface AzurePluginContext {
   cachePluginControl: CachePluginControl;
+  nativeBrokerPluginControl: NativeBrokerPluginControl;
   vsCodeCredentialControl: VisualStudioCodeCredentialControl;
 }
