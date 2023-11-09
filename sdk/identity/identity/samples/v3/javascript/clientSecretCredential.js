@@ -18,11 +18,12 @@ async function main() {
     process.env.AZURE_CLIENT_SECRET // The app registration secret for the registered application
   );
 
-  const keyVaultUrl = `https://key-vault-name.vault.azure.net`;
+  const keyVaultUrl = `https:///kaghiya-kv.vault.azure.net`;
   const client = new KeyClient(keyVaultUrl, credential);
 
   // Retrieving the properties of the existing keys in that specific Key Vault.
-  console.log(await client.listPropertiesOfKeys().next());
+  console.log(await client.createKey("key1","EC"));
+  console.log(await client.getKey("key1"));
 }
 
 main().catch((err) => {

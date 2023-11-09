@@ -22,7 +22,7 @@ require("dotenv").config();
 async function main() {
   const credential = new DefaultAzureCredential();
 
-  const keyVaultUrl = `https://key-vault-name.vault.azure.net`;
+  const keyVaultUrl = `https://kaghiya-kv.vault.azure.net`;
   const client = new KeyClient(keyVaultUrl, credential);
 
   // Retrieving the properties of the existing keys in that specific Key Vault.
