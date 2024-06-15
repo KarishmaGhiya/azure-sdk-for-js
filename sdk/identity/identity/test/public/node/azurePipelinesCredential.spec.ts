@@ -64,12 +64,8 @@ describe("AzurePipelinesCredential", function () {
       existingServiceConnectionId,
       systemAccessToken
     );
-    try {
-      await credential.getToken(scope);
-    } catch (e) {
-      assert
-      console.log(e);
-    }
+    const regExp: RegExp = /AuthenticationRequiredError: unauthorized_client: 700016/;
+    assert.throws(async ()=>{await credential.getToken(scope)},regExp,"error thrown matches." );
   });
 
   it("fails with with invalid system access token", async function () {
