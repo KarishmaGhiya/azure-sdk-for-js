@@ -111,6 +111,10 @@ async function defaultAuthorizeRequest(options: AuthorizeRequestOptions): Promis
     abortSignal: request.abortSignal,
     tracingOptions: request.tracingOptions,
   };
+
+  if (getTokenOptions.enableCae) {
+    // do something??
+  }
   const accessToken = await getAccessToken(scopes, getTokenOptions);
 
   if (accessToken) {
@@ -129,13 +133,17 @@ function getChallenge(response: PipelineResponse): string | undefined {
   }
   return;
 }
+//probably may need to add another helper to read the challene from get challenge
+// to extract the value of claims
+
+//Another helper to verify if the error is "insufficient_claims" ==> isCaeChallenge?
 
 /**
  * A policy that can request a token from a TokenCredential implementation and
  * then apply it to the Authorization header of a request as a Bearer token.
  */
 export function bearerTokenAuthenticationPolicy(
-  options: BearerTokenAuthenticationPolicyOptions,
+  options: BearerTokenAuthenticationPolicyOptions
 ): PipelinePolicy {
   const { credential, scopes, challengeCallbacks } = options;
   const logger = options.logger || coreLogger;
@@ -172,7 +180,7 @@ export function bearerTokenAuthenticationPolicy(
     async sendRequest(request: PipelineRequest, next: SendRequest): Promise<PipelineResponse> {
       if (!request.url.toLowerCase().startsWith("https://")) {
         throw new Error(
-          "Bearer token authentication is not permitted for non-TLS protected (non-https) URLs.",
+          "Bearer token authentication is not permitted for non-TLS protected (non-https) URLs."
         );
       }
 
@@ -198,6 +206,7 @@ export function bearerTokenAuthenticationPolicy(
         getChallenge(response)
       ) {
         // processes challenge
+        // maybe here? to check the claims and the error if cae is enabled?
         const shouldSendRequest = await callbacks.authorizeRequestOnChallenge({
           scopes: Array.isArray(scopes) ? scopes : [scopes],
           request,
