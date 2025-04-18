@@ -1,11 +1,8 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { getMergeConflictsCli } from "./commands/getMergeConflictsCli";
-import { exec } from "child_process";
-import { promisify } from "util";
-
-const execAsync = promisify(exec);
+import { Octokit } from "@octokit/rest";
+import { getMergeConflicts } from "./commands/getMergeConflicts";
 
 // Create an MCP server
 const server = new McpServer({
@@ -24,29 +21,26 @@ server.tool(
   },
   async ({ owner, repo, pull_number, token }) => {
     try {
-      // Set up GitHub token for CLI
-      process.env.GITHUB_TOKEN = token;
-
-      // Check if PR is mergeable using GitHub CLI
-      const { stdout: prInfo } = await execAsync(
-        `gh pr view ${pull_number} --repo ${owner}/${repo} --json mergeable,mergeStateStatus`
-      );
+      const octokit = new Octokit({ auth: token });
       
-      const data = JSON.parse(prInfo);
+      const { data } = await octokit.pulls.get({
+        owner,
+        repo,
+        pull_number,
+      });
 
       let result;
       if (data.mergeable === false) {
-        // Use the CLI-based implementation to get merge conflicts
-        const conflicts = await getMergeConflictsCli(owner, repo, pull_number, token);
+        const conflicts = await getMergeConflicts(owner, repo, pull_number, token, octokit);
         result = {
           mergeable: data.mergeable,
           hasConflicts: true,
           conflicts,
         };
-      } else {
+      } else{
         result = {
           mergeable: data.mergeable,
-          hasConflicts: data.mergeStateStatus === "DIRTY",
+          hasConflicts: data.mergeable_state === "dirty",
         };
       }
 
@@ -60,15 +54,7 @@ server.tool(
       };
     } catch (error) {
       console.error("Error fetching pull request data:", error);
-      return {
-        content: [
-          {
-            type: "text",
-            text: `Failed to fetch pull request data. Please check the provided details. ${error}`
-          }
-        ],
-        isError: true
-      };
+      throw new Error(`Failed to fetch pull request data. Please check the provided details. ${error}`);
     }
   }
 );
