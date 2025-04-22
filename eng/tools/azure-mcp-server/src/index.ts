@@ -2,10 +2,9 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { getMergeConflictsCli } from "./commands/getMergeConflictsCli";
-import { resolveMergeConflicts } from "./commands/resolveMergeConflicts"; // Add this import
 import { exec } from "child_process";
 import { promisify } from "util";
-import { resolveMergeConflictsByFileType } from "./commands/resolveMergeConflictsByFileType";
+import { resolveMergeConflictsWithGhCli } from "./commands/resolveMergeConflictsWithGhCli";
 
 const execAsync = promisify(exec);
 
@@ -94,11 +93,11 @@ server.tool(
   async ({ owner, repo, pull_number, token }) => {
     try {
       // Call the resolve merge conflicts function
-      const result = await resolveMergeConflictsByFileType(
+      const result = await resolveMergeConflictsWithGhCli(
         owner,
         repo,
         pull_number,
-        token,
+        token
       );
       
       return {
@@ -115,7 +114,7 @@ server.tool(
         content: [
           {
             type: "text",
-            text: `Failed to resolve merge conflicts. Please check the provided details. ${error}`
+            text: `Resolution failed - ${error}`
           }
         ],
         isError: true

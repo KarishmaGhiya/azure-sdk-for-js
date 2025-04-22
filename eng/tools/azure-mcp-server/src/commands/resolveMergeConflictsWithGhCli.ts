@@ -12,16 +12,18 @@ import * as path from "path";
 export async function resolveMergeConflictsWithGhCli(
   owner: string,
   repo: string,
-  pullNumber: number
+  pullNumber: number,
+  token: string
 ): Promise<string> {
   try {
+    process.env.GH_TOKEN = token;
     // Fetch PR details using GitHub CLI
     const prDetails = JSON.parse(
-      execSync(`gh pr view ${pullNumber} --repo ${owner}/${repo} --json mergeableState,headRefName,baseRefName`).toString()
+      execSync(`gh pr view ${pullNumber} --repo ${owner}/${repo} --json mergeStateStatus,headRefName,baseRefName`).toString()
     );
 
-    if (prDetails.mergeableState !== "CONFLICTING") {
-      return `No conflicts to resolve. Mergeable state: ${prDetails.mergeableState}`;
+    if (prDetails.mergeStateStatus !== "CONFLICTING") {
+      return `No conflicts to resolve. Mergeable state: ${prDetails.mergeStateStatus}`;
     }
 
     // Fetch conflicting files using GitHub CLI
