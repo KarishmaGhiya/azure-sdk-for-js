@@ -2,8 +2,10 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { getMergeConflictsCli } from "./commands/getMergeConflictsCli";
+import { resolveMergeConflicts } from "./commands/resolveMergeConflicts"; // Add this import
 import { exec } from "child_process";
 import { promisify } from "util";
+import { resolveMergeConflictsByFileType } from "./commands/resolveMergeConflictsByFileType";
 
 const execAsync = promisify(exec);
 
@@ -43,6 +45,12 @@ server.tool(
           hasConflicts: true,
           conflicts,
         };
+      } else if (data.mergeable === null || data.mergeable === undefined) {
+        result = {
+          mergeable: "unknown",
+          hasConflicts: false,
+          message: "GitHub is still calculating merge status. Please try again in a few moments."
+        };
       } else {
         result = {
           mergeable: data.mergeable,
@@ -65,6 +73,49 @@ server.tool(
           {
             type: "text",
             text: `Failed to fetch pull request data. Please check the provided details. ${error}`
+          }
+        ],
+        isError: true
+      };
+    }
+  }
+);
+
+// Add the new tool for resolving merge conflicts
+server.tool(
+  "resolve_merge_conflicts",
+  "resolves merge conflicts in a pull request using a specified strategy",
+  {
+    owner: z.string(),
+    repo: z.string(),
+    pull_number: z.number(),
+    token: z.string(),
+  },
+  async ({ owner, repo, pull_number, token }) => {
+    try {
+      // Call the resolve merge conflicts function
+      const result = await resolveMergeConflictsByFileType(
+        owner,
+        repo,
+        pull_number,
+        token,
+      );
+      
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2)
+          }
+        ]
+      };
+    } catch (error) {
+      console.error("Error resolving merge conflicts:", error);
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Failed to resolve merge conflicts. Please check the provided details. ${error}`
           }
         ],
         isError: true
