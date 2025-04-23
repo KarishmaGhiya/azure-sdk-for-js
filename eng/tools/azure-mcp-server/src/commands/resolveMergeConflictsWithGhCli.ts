@@ -22,9 +22,10 @@ export async function resolveMergeConflictsWithGhCli(
       execSync(`gh pr view ${pullNumber} --repo ${owner}/${repo} --json mergeStateStatus,headRefName,baseRefName`).toString()
     );
 
-    if (prDetails.mergeStateStatus !== "CONFLICTING") {
+    if (prDetails.mergeStateStatus !== "CONFLICTING" && prDetails.mergeStateStatus !== "DIRTY") {
       return `No conflicts to resolve. Mergeable state: ${prDetails.mergeStateStatus}`;
     }
+
 
     // Fetch conflicting files using GitHub CLI
     const prFiles = JSON.parse(
