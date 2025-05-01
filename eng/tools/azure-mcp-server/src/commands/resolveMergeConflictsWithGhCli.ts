@@ -1,5 +1,14 @@
 import { execSync } from "child_process";
 import * as path from "path";
+import * as fs from "fs";
+import * as os from "os";
+
+// Log the directory MCP tool operates in
+const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "gh-resolve-conflicts-"));
+console.log(`MCP tool operating in temporary directory: ${tempDir}`);
+
+// Change the working directory to the temporary directory
+process.chdir(tempDir);
 
 /**
  * Resolves merge conflicts in a GitHub pull request based on file types using GitHub CLI.

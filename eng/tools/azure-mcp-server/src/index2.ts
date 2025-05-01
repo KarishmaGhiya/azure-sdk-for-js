@@ -2,7 +2,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { Octokit } from "@octokit/rest";
-import { getMergeConflicts } from "./commands/getMergeConflicts";
+import { getMergeConflicts } from "./commands/mcp/__tests__/getMergeConflicts";
 
 // Create an MCP server
 const server = new McpServer({
