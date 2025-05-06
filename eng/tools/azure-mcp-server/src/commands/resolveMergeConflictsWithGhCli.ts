@@ -4,11 +4,7 @@ import * as fs from "fs";
 import * as os from "os";
 
 // Log the directory MCP tool operates in
-const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "gh-resolve-conflicts-"));
-console.log(`MCP tool operating in temporary directory: ${tempDir}`);
-
-// Change the working directory to the temporary directory
-process.chdir(tempDir);
+console.log(`MCP tool operating in directory: ${process.cwd()}`);
 
 /**
  * Resolves merge conflicts in a GitHub pull request based on file types using GitHub CLI.
@@ -26,6 +22,8 @@ export async function resolveMergeConflictsWithGhCli(
 ): Promise<string> {
   try {
     process.env.GH_TOKEN = token;
+    console.log(`command: gh pr view <pr-number> --repo <owner>/<repo> --json mergeStateStatus,headRefName,baseRefName`);
+    console.log(`Fetching PR details for ${owner}/${repo}#${pullNumber}...`);
     // Fetch PR details using GitHub CLI
     const prDetails = JSON.parse(
       execSync(`gh pr view ${pullNumber} --repo ${owner}/${repo} --json mergeStateStatus,headRefName,baseRefName`).toString()
@@ -86,8 +84,9 @@ function resolvePnpmLockConflict(prBranch: string, baseBranch: string): void {
     console.log("Fetching the latest changes from the main branch...");
     execSync(`git fetch origin ${baseBranch}`, { stdio: "inherit" });
 
+    // gh pr checkout <pr-number>
     console.log(`Checking out the PR branch: ${prBranch}...`);
-    execSync(`git checkout ${prBranch}`, { stdio: "inherit" });
+    execSync(`gh pr checkout ${prBranch}`, { stdio: "inherit" });
 
     console.log(`Merging the main branch (${baseBranch}) into the PR branch...`);
     execSync(`git merge origin/${baseBranch}`, { stdio: "inherit" });
