@@ -1,6 +1,6 @@
 {
   "name": "@azure/core-util",
-  "version": "1.11.1",
+  "version": "1.12.1",
   "description": "Core library for shared utility methods",
   "sdk-type": "client",
   "type": "module",
@@ -76,7 +76,8 @@
   },
   "dependencies": {
     "@azure/abort-controller": "^2.0.0",
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.2",
+    "@typespec/ts-http-runtime": "^0.2.2"
   },
   "devDependencies": {
     "@azure-tools/vite-plugin-browser-test-map": "^1.0.0",

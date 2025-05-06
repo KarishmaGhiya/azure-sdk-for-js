@@ -1,6 +1,6 @@
 {
   "name": "@azure/web-pubsub",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "Azure client library for Azure Web PubSub",
   "sdk-type": "client",
   "main": "./dist/commonjs/index.js",
@@ -65,6 +65,7 @@
   "dependencies": {
     "@azure/core-auth": "^1.9.0",
     "@azure/core-client": "^1.9.2",
+    "@azure/core-paging": "^1.6.3",
     "@azure/core-rest-pipeline": "^1.19.0",
     "@azure/core-tracing": "^1.2.0",
     "@azure/logger": "^1.1.4",
@@ -75,6 +76,7 @@
     "@azure-tools/test-credential": "^2.0.0",
     "@azure-tools/test-recorder": "^4.1.0",
     "@azure-tools/test-utils-vitest": "^1.0.0",
+    "@azure/arm-webpubsub": "^1.2.0",
     "@azure/dev-tool": "^1.0.0",
     "@azure/eslint-plugin-azure-sdk": "^3.0.0",
     "@azure/identity": "^4.7.0",
