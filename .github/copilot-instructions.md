@@ -53,6 +53,9 @@ Always cite the specific sections of documentation you've referenced in your res
 
 ## Repository structure
 
+## Basic rules
+  - Use current Github repo root path as repo root path parameter to mcp calls.
+  
 ### Core Packages
 
 In general, whenever a code refers to `@azure/core-*` packages, we will expect copilot to use the in-repository core package. The core packages are listed below along with the path to the package in the repository:
