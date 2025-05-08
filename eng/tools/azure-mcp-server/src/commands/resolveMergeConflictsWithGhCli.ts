@@ -22,7 +22,7 @@ export async function resolveMergeConflictsWithGhCli(
 ): Promise<string> {
   try {
     process.env.GH_TOKEN = token;
-    console.log(`command: gh pr view <pr-number> --repo <owner>/<repo> --json mergeStateStatus,headRefName,baseRefName`);
+    console.log(`command to be run: gh pr view ${pullNumber} --repo ${owner}/${repo} --json mergeStateStatus,headRefName,baseRefName`);
     console.log(`Fetching PR details for ${owner}/${repo}#${pullNumber}...`);
     // Fetch PR details using GitHub CLI
     const prDetails = JSON.parse(

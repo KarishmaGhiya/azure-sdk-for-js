@@ -89,15 +89,17 @@ server.tool(
     repo: z.string(),
     pull_number: z.number(),
     token: z.string(),
+    repoRootPath: z.string(),
   },
-  async ({ owner, repo, pull_number, token }) => {
+  async ({ owner, repo, pull_number, token, repoRootPath }) => {
     try {
       // Call the resolve merge conflicts function
       const result = await resolveMergeConflictsWithGhCli(
         owner,
         repo,
         pull_number,
-        token
+        token,
+        repoRootPath
       );
       
       return {
