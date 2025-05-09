@@ -18,10 +18,12 @@ export async function resolveMergeConflictsWithGhCli(
   owner: string,
   repo: string,
   pullNumber: number,
-  token: string
+  token: string,
+  repoRootPath: string
 ): Promise<string> {
   try {
     process.env.GH_TOKEN = token;
+    execSync(`cd ${repoRootPath}`, { stdio: "inherit" });
     console.log(`command to be run: gh pr view ${pullNumber} --repo ${owner}/${repo} --json mergeStateStatus,headRefName,baseRefName`);
     console.log(`Fetching PR details for ${owner}/${repo}#${pullNumber}...`);
     // Fetch PR details using GitHub CLI
@@ -64,7 +66,7 @@ export async function resolveMergeConflictsWithGhCli(
         }
       }
     }
-
+   
     execSync(`git push origin ${prDetails.headRefName}`);
     return "Conflicts resolved based on file types.";
   } catch (error: any) {
