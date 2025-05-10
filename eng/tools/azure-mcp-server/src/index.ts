@@ -128,6 +128,13 @@ server.tool(
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
+  process.argv.forEach((arg) => {
+    console.error("Argument passed to server:", arg);
+  });
+
+  const repoRootPath = process.argv[2];
+  process.chdir(repoRootPath);
+  console.error(`MCP tool operating in directory: ${process.cwd()}`);
   console.error("Azure MCP server started");
 }
 

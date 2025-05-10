@@ -4,7 +4,7 @@ import * as fs from "fs";
 import * as os from "os";
 
 // Log the directory MCP tool operates in
-console.log(`MCP tool operating in directory: ${process.cwd()}`);
+console.error(`MCP tool operating in directory: ${process.cwd()}`);
 
 /**
  * Resolves merge conflicts in a GitHub pull request based on file types using GitHub CLI.
