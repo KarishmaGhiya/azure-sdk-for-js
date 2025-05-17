@@ -32,32 +32,33 @@ server.tool(
       const { stdout: prInfo } = await execAsync(
         `gh pr view ${pull_number} --repo ${owner}/${repo} --json mergeable,mergeStateStatus`
       );
-      
+
       const data = JSON.parse(prInfo);
 
       let result;
-      if (data.mergeable === false) {
-        // Use the CLI-based implementation to get merge conflicts
-        const conflicts = await getMergeConflictsCli(owner, repo, pull_number, token);
-        result = {
-          mergeable: data.mergeable,
-          hasConflicts: true,
-          conflicts,
-        };
-      } else if (data.mergeable === null || data.mergeable === undefined) {
-        result = {
-          mergeable: "unknown",
-          hasConflicts: false,
-          message: "GitHub is still calculating merge status. Please try again in a few moments."
-        };
-      } else {
-        result = {
-          mergeable: data.mergeable,
-          hasConflicts: data.mergeStateStatus === "DIRTY",
-        };
-      }
+      // if (data.mergeable) {
+      // Use the CLI-based implementation to get merge conflicts
+      const conflicts = await getMergeConflictsCli(owner, repo, pull_number, token);
+      result = {
+        mergeable: data.mergeable,
+        hasConflicts: conflicts.length > 0,
+        conflicts,
+      };
+      // } else if (data.mergeable === null || data.mergeable === undefined) {
+      //   result = {
+      //     mergeable: "unknown",
+      //     hasConflicts: false,
+      //     message: "GitHub is still calculating merge status. Please try again in a few moments."
+      //   };
+      // } else {
+      //   result = {
+      //     mergeable: data.mergeable,
+      //     hasConflicts: data.mergeStateStatus === "DIRTY",
 
-      return {       
+      //   };
+      // }
+
+      return {
         content: [
           {
             type: "text",
@@ -101,7 +102,7 @@ server.tool(
         token,
         repoRootPath
       );
-      
+
       return {
         content: [
           {
