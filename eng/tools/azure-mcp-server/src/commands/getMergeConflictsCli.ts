@@ -67,7 +67,8 @@ export async function getMergeConflictsCli(
 
     const prData = JSON.parse(prInfo);
 
-    if (prData.mergeable === false) {
+    if (prData.mergeable === "CONFLICTING") {
+      console.log(`Fetching diff for PR #${pullNumber}...`);
       // Get the diff to analyze conflicts
       const { stdout: diffOutput } = await execAsync(
         `gh pr diff ${pullNumber} --repo ${owner}/${repo}`
